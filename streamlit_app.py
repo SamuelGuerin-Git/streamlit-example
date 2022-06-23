@@ -53,8 +53,49 @@ def DataViz():
     st.header("DataViz")
 
 def Modelisations():
-    st.markdown("# Modelisations")
-    st.header("coucou")
+    st.header("Modélisations")
+    
+    Menu_mod = st.sidebar.radio(
+     "Menu Modélisations",
+     ('Equilibrage des classes','Traitement des valeurs manquantes','Sélection de variables', 'Conclusion'))
+
+    def Equilibrage():
+        st.subheader("Équilibrage des classes")
+        st.image('images/model_01_desequilibre.jpg')
+        st.markdown("**Performances d'un modèle Random Forest sur le jeu de données complet :**")
+        st.image('images/model_02_sans_equ.jpg')
+        if st.checkbox("Après équilibrage"):
+            st.image('images/model_03_avec_equ.jpg')
+        if st.checkbox("Modification du seuil de décision"):
+            st.image('images/model_05_seuils_proba.jpg')
+            st.image('images/model_06_seuilmaxF1.jpg')
+        
+    def TraitementNA():
+        st.subheader("Traitement des valeurs manquantes")
+        st.image('images/model_07_proportionsNA.jpg')
+        if st.checkbox("Scores"):
+            st.markdown("**Scores en fonction du jeu de données :**")
+            st.image('images/model_08_scores_JD.jpg')
+        
+    def SelectionVar():
+        st.subheader("Sélection de variables")
+        st.image('images/model_09_selectKBest.jpg') 
+  
+    def Conclusion():
+        st.subheader("Conclusion")
+        
+         
+    if Menu_mod == 'Equilibrage des classes':
+        Equilibrage()
+        
+    if Menu_mod == 'Traitement des valeurs manquantes':
+        TraitementNA()
+        
+    if Menu_mod == 'Sélection de variables':
+        SelectionVar()
+        
+    if Menu_mod == 'Conclusion':
+        Conclusion()
 
 def simulation():
     #Chargement du modele
