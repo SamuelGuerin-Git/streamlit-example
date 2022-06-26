@@ -21,7 +21,7 @@ def main():
 
     Menu = st.sidebar.radio(
      "Menu",
-     ('Le Projet Météo', 'PreProcessing','DataViz','Modelisations','Performances','Simulations','Conclusion'))
+     ('Le Projet Météo', 'PreProcessing','DataViz','Modelisations','Performances','Simulations','Clustering','Séries Temporelles','Deep Learning','Conclusion'))
 
     if Menu == 'Le Projet Météo':
         from PIL import Image
@@ -45,11 +45,13 @@ def main():
     st.sidebar.text("Samuel Guérin")      
     
 def PreProcessing():
+        
+    st.header("PreProcessing")
+    
     from PIL import Image
     image = Image.open('images/Climats.jpg')
     st.image(image, caption='Climats')
-    
-    st.header("PreProcessing")
+
     
     
     
