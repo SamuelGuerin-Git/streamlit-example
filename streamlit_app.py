@@ -49,6 +49,10 @@ def PreProcessing():
     image = Image.open('images/Climats.jpg')
     st.image(image, caption='Climats')
     
+    st.header("PreProcessing")
+    
+    
+    
 def DataViz():
     st.header("DataViz")
 
