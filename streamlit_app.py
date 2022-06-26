@@ -276,6 +276,12 @@ def simulation():
     #    explainer = shap.TreeExplainer(modele)
     #    shap_values = explainer.shap_values(df[features])
     #    st_shap(shap.summary_plot(shap_values, df[features]),height=300)
+    
+def Clustering():
+    st.header("Clustering")
+    Menu_mod = st.sidebar.radio(
+     "Menu Clustering",
+     ('Stratégie','KMeans','TimesSeriesClustering', 'Conclusion'))    
 
 
 if __name__ == "__main__":
