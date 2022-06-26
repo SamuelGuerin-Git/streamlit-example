@@ -45,13 +45,33 @@ def main():
     st.sidebar.text("Samuel Guérin")      
     
 def PreProcessing():
-        
-    st.header("PreProcessing")
     
     from PIL import Image
+    
+    st.header("PreProcessing")
+    
+    st.subheader("Fichier source")
+    image = Image.open('images/weatherAUS.jfif')
+    st.image(image, caption='Relevé Météo en Australie')
+    df=pd.read_csv('data/weather_AUS.csv') #Read our data dataset
+    st.write("Présentation du jeu de données : ", df.info()) 
+    
+    st.subheader("Ajout de nouvelles données") 
+    
     image = Image.open('images/Climats.jpg')
-    st.image(image, caption='Climats')
-
+    st.image(image, caption='Climats - Classification de Koppen')
+    df=pd.read_csv('data/aus_town_gps.csv') #Read our data dataset
+    st.write("Nombre de lignes : ", df.shape[0]) 
+    st.write("Nombre de colonnes : ", df.shape[1]) 
+    
+    image = Image.open('images/GPS.jfif')
+    st.image(image, caption='Coordonnées GPS')
+    df=pd.read_csv('data/aus_town_gps.csv') #Read our data dataset
+    st.write("Nombre de lignes : ", df.shape[0]) 
+    st.write("Nombre de colonnes : ", df.shape[1]) 
+    
+    
+    
     
     
     
