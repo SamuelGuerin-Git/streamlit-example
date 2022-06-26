@@ -3,6 +3,7 @@ from streamlit_shap import st_shap
 
 import pandas as pd
 import numpy as np
+import io
 import pickle
 import sklearn
 from sklearn.metrics import precision_recall_curve, classification_report, confusion_matrix, ConfusionMatrixDisplay
@@ -54,16 +55,22 @@ def PreProcessing():
     image = Image.open('images/weatherAUS.jfif')
     st.image(image, caption='Relevé Météo en Australie')
     df=pd.read_csv('data/weatherAUS.csv') #Read our data dataset
-    st.write("Présentation du jeu de données : ", df.info()) 
+    buffer = io.StringIO()
+    df.info(buf=buffer)
+    s = buffer.getvalue()
+    st.write("Présentation du jeu de données : ") 
+    st.text(s)
     
     st.subheader("Ajout de nouvelles données") 
     
+    st.write("Classification de Koppen") 
     image = Image.open('images/Climats.jpg')
     st.image(image, caption='Climats - Classification de Koppen')
     df=pd.read_csv('data/climatsAUS_v2.csv') #Read our data dataset
     st.write("Nombre de lignes : ", df.shape[0]) 
-    st.write("Nombre de colonnes : ", df.shape[1]) 
+    st.write("Nombre de colonnes : ", df.shape[1])
     
+    st.write("Coordonnées GPS")     
     image = Image.open('images/GPS.jfif')
     st.image(image, caption='Coordonnées GPS')
     df=pd.read_csv('data/aus_town_gps.csv') #Read our data dataset
