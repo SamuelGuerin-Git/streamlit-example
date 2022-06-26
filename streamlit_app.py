@@ -53,14 +53,14 @@ def PreProcessing():
     st.subheader("Fichier source")
     image = Image.open('images/weatherAUS.jfif')
     st.image(image, caption='Relevé Météo en Australie')
-    df=pd.read_csv('data/weather_AUS.csv') #Read our data dataset
+    df=pd.read_csv('data/weatherAUS.csv') #Read our data dataset
     st.write("Présentation du jeu de données : ", df.info()) 
     
     st.subheader("Ajout de nouvelles données") 
     
     image = Image.open('images/Climats.jpg')
     st.image(image, caption='Climats - Classification de Koppen')
-    df=pd.read_csv('data/aus_town_gps.csv') #Read our data dataset
+    df=pd.read_csv('data/climatsAUS_v2.csv') #Read our data dataset
     st.write("Nombre de lignes : ", df.shape[0]) 
     st.write("Nombre de colonnes : ", df.shape[1]) 
     
