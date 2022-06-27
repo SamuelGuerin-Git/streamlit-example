@@ -36,7 +36,8 @@ def main():
         Modelisations()       
     if Menu == 'Simulations':
         simulation()
-
+    if Menu == 'Clsutering':
+        clustering()
 
     st.sidebar.text("")
     st.sidebar.text("Projet DataScientest")
@@ -67,15 +68,21 @@ def PreProcessing():
     image = Image.open('images/Climats.jpg')
     st.image(image, caption='Climats - Classification de Koppen')
     df=pd.read_csv('data/climatsAUS_v2.csv') #Read our data dataset
-    st.write("Nombre de lignes : ", df.shape[0]) 
-    st.write("Nombre de colonnes : ", df.shape[1])
+    buffer = io.StringIO()
+    df.info(buf=buffer)
+    s = buffer.getvalue()
+    st.write("Présentation du jeu de données : ") 
+    st.text(s)
     
     st.write("Coordonnées GPS")     
     image = Image.open('images/GPS.jfif')
     st.image(image, caption='Coordonnées GPS')
     df=pd.read_csv('data/aus_town_gps.csv') #Read our data dataset
-    st.write("Nombre de lignes : ", df.shape[0]) 
-    st.write("Nombre de colonnes : ", df.shape[1]) 
+    buffer = io.StringIO()
+    df.info(buf=buffer)
+    s = buffer.getvalue()
+    st.write("Présentation du jeu de données : ") 
+    st.text(s)
     
     
     
@@ -277,12 +284,40 @@ def simulation():
     #    shap_values = explainer.shap_values(df[features])
     #    st_shap(shap.summary_plot(shap_values, df[features]),height=300)
     
-def Clustering():
+def clustering():
     st.header("Clustering")
+    
+    image = Image.open('images/weatherAUS.jfif')
+    
     Menu_mod = st.sidebar.radio(
      "Menu Clustering",
-     ('Stratégie','KMeans','TimesSeriesClustering', 'Conclusion'))    
+     ('Introduction et stratégie','1ère étape: Type de climat','2ème étape: Régime pluviométrique','3ème étape: Variation de température', 'Conclusion'))  
+    
+    def Intro():
+        
+    def KMeans():   
+        
+    def TSClustering2L():
+        
+    def TSClustering3L():
+        
+    def Conclusion(): 
 
 
+    if Menu_mod == 'Introduction et stratégie':
+        Intro()
+        
+    if Menu_mod == '1ère étape: Type de climat':
+        KMeans()
+        
+    if Menu_mod == '2ème étape: Régime pluviométrique':
+        TSClustering2L()
+        
+    if Menu_mod == '3ème étape: Variation de température':
+        TSClustering3L()
+        
+    if Menu_mod == 'Conclusion':
+        Conclusion()
+        
 if __name__ == "__main__":
     main()
