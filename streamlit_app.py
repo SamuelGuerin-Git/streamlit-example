@@ -292,7 +292,7 @@ def clustering():
     
     def Intro():
         st.subheader("Introduction")
-        image = Image.open('images/clustering.jfif')
+        image = Image.open('images/clustering-in-machine-learning.jpg')
         st.image(image)
     def KMeans():
         st.subheader("Clustering: Type de climat")
