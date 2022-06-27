@@ -285,24 +285,25 @@ def simulation():
     #    st_shap(shap.summary_plot(shap_values, df[features]),height=300)
     
 def clustering():
-    st.header("Clustering")
-    
-    image = Image.open('images/weatherAUS.jfif')
-    
+ 
     Menu_mod = st.sidebar.radio(
      "Menu Clustering",
      ('Introduction et stratégie','1ère étape: Type de climat','2ème étape: Régime pluviométrique','3ème étape: Variation de température', 'Conclusion'))  
     
     def Intro():
-        
-    def KMeans():   
+        st.subheader("Introduction")
+        image = Image.open('images/weatherAUS.jfif')       
+    def KMeans():
+        st.subheader("Clustering: Type de climat")
         
     def TSClustering2L():
+        st.subheader("Clustering: Régime pluviométrique")
         
     def TSClustering3L():
+        st.subheader("Clustering: Variation de température")
         
     def Conclusion(): 
-
+        st.subheader("Conclusion")
 
     if Menu_mod == 'Introduction et stratégie':
         Intro()
