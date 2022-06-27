@@ -295,14 +295,22 @@ def clustering():
         st.image('images/clustering-in-machine-learning.jpg')
 
         ''' 
-        ## La classification de Köppen est une classification des climats fondée sur les précipitations et les températures. Un climat, selon cette classification, est repéré par un code de deux ou trois lettres :
+        #### La classification de Köppen est une classification des climats fondée sur les précipitations et les températures. Un climat, selon cette classification, est repéré par un code de deux ou trois lettres :
         * 1ère lettre : type de climat 
         * 2ème lettre : régime pluviométrique 
         * 3ème lettre : variations de températures.
-        ## La combinaison de ces sous-classifications donne la classification de climat de Köppen suivante :
+        #### La combinaison de ces sous-classifications donne la classification de climat de Köppen suivante :
         '''        
         
-        st.image('images/Climat de Koppen.jpg')
+        st.image('images/Climat de Koppen.jpg',caption='Classification de Koppen')
+        ''' 
+        ##### Stratégie Adoptée :
+        * 1ère lettre : type de climat => Algorithme KMeans
+        * 2ème lettre : régime pluviométrique => Timeseries Clustering
+        * 3ème lettre : variations de températures => TimeSeriesClustering
+        ##### La combinaison de ces sous-classifications donne la classification de climat de Köppen suivante :
+        '''                
+        
         
     def KMeans():
         st.subheader("Clustering: Type de climat")
