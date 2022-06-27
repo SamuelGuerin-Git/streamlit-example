@@ -308,12 +308,32 @@ def clustering():
         * 1ère lettre : type de climat => Algorithme KMeans
         * 2ème lettre : régime pluviométrique => Timeseries Clustering
         * 3ème lettre : variations de températures => TimeSeriesClustering
-        ##### La combinaison de ces sous-classifications donne la classification de climat de Köppen suivante :
         '''                
         
         
     def KMeans():
-        st.subheader("Clustering: Type de climat")
+        st.subheader("Clustering: Type de climat => KMeans")
+        '''
+        ### Preprocessing:
+        #### Création d'un dataframe avec :
+        * une ligne par ville
+        * pour chaque variable considérées, création d'un jeu de douze colonne avec le calcul de la moyenne mensuelle: 
+            * 'MinTemp','MaxTemp','Temp9am','Temp3pm',
+            * 'Rainfall',
+            * 'Evaporation',
+            * 'Sunshine',
+            * 'WindGustSpeed','WindSpeed9am','WindSpeed3pm',
+            * 'Humidity9am','Humidity3pm',
+            * 'Pressure9am','Pressure3pm',
+            * 'Cloud9am','Cloud3pm',
+            * 'RainToday_Num'
+        ### Utilisation de l'algorithme KMeans:
+        #### Méthode du coude pour définir le nombre de clusters
+        '''
+        st.image('images/clustering-in-machine-learning.jpg')
+        '''
+        #### Nous considérons 10 clusters.
+        '''
         
     def TSClustering2L():
         st.subheader("Clustering: Régime pluviométrique")
