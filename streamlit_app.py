@@ -3,6 +3,7 @@ from streamlit_shap import st_shap
 
 import pandas as pd
 import numpy as np
+import io
 import pickle
 import sklearn
 from sklearn.metrics import precision_recall_curve, classification_report, confusion_matrix, ConfusionMatrixDisplay
@@ -35,7 +36,8 @@ def main():
         Modelisations()       
     if Menu == 'Simulations':
         simulation()
-
+    if Menu == 'Clustering':
+        clustering()
 
     st.sidebar.text("")
     st.sidebar.text("Projet DataScientest")
@@ -45,13 +47,45 @@ def main():
     st.sidebar.text("Samuel Guérin")      
     
 def PreProcessing():
-        
-    st.header("PreProcessing")
     
     from PIL import Image
+    
+    st.header("PreProcessing")
+    
+    st.subheader("Fichier source")
+    image = Image.open('images/weatherAUS.jfif')
+    st.image(image, caption='Relevé Météo en Australie')
+    df=pd.read_csv('data/weatherAUS.csv') #Read our data dataset
+    buffer = io.StringIO()
+    df.info(buf=buffer)
+    s = buffer.getvalue()
+    st.write("Présentation du jeu de données : ") 
+    st.text(s)
+    
+    st.subheader("Ajout de nouvelles données") 
+    
+    st.write("Classification de Koppen") 
     image = Image.open('images/Climats.jpg')
-    st.image(image, caption='Climats')
-
+    st.image(image, caption='Climats - Classification de Koppen')
+    df=pd.read_csv('data/climatsAUS_v2.csv') #Read our data dataset
+    buffer = io.StringIO()
+    df.info(buf=buffer)
+    s = buffer.getvalue()
+    st.write("Présentation du jeu de données : ") 
+    st.text(s)
+    
+    st.write("Coordonnées GPS")     
+    image = Image.open('images/GPS.jfif')
+    st.image(image, caption='Coordonnées GPS')
+    df=pd.read_csv('data/aus_town_gps.csv') #Read our data dataset
+    buffer = io.StringIO()
+    df.info(buf=buffer)
+    s = buffer.getvalue()
+    st.write("Présentation du jeu de données : ") 
+    st.text(s)
+    
+    
+    
     
     
     
@@ -249,7 +283,42 @@ def simulation():
     #    explainer = shap.TreeExplainer(modele)
     #    shap_values = explainer.shap_values(df[features])
     #    st_shap(shap.summary_plot(shap_values, df[features]),height=300)
+    
+def clustering():
+ 
+    Menu_mod = st.sidebar.radio(
+     "Menu Clustering",
+     ('Introduction et stratégie','1ère étape: Type de climat','2ème étape: Régime pluviométrique','3ème étape: Variation de température', 'Conclusion'))  
+    
+    def Intro():
+        st.subheader("Introduction")
+        image = Image.open('images/weatherAUS.jfif')       
+    def KMeans():
+        st.subheader("Clustering: Type de climat")
+        
+    def TSClustering2L():
+        st.subheader("Clustering: Régime pluviométrique")
+        
+    def TSClustering3L():
+        st.subheader("Clustering: Variation de température")
+        
+    def Conclusion(): 
+        st.subheader("Conclusion")
 
-
+    if Menu_mod == 'Introduction et stratégie':
+        Intro()
+        
+    if Menu_mod == '1ère étape: Type de climat':
+        KMeans()
+        
+    if Menu_mod == '2ème étape: Régime pluviométrique':
+        TSClustering2L()
+        
+    if Menu_mod == '3ème étape: Variation de température':
+        TSClustering3L()
+        
+    if Menu_mod == 'Conclusion':
+        Conclusion()
+        
 if __name__ == "__main__":
     main()
