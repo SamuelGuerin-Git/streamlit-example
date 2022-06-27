@@ -330,7 +330,7 @@ def clustering():
         ### Utilisation de l'algorithme KMeans:
         #### Méthode du coude pour définir le nombre de clusters
         '''
-        st.image('images/clustering-in-machine-learning.jpg')
+        st.image('images/1L_Coude.jpg')
         '''
         #### Nous considérons 10 clusters.
         '''
