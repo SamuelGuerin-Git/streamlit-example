@@ -36,7 +36,7 @@ def main():
         Modelisations()       
     if Menu == 'Simulations':
         simulation()
-    if Menu == 'Clsutering':
+    if Menu == 'Clustering':
         clustering()
 
     st.sidebar.text("")
