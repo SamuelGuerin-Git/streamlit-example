@@ -306,7 +306,7 @@ def clustering():
         ''' 
         ##### Stratégie Adoptée :
         * 1ère lettre : type de climat => Algorithme KMeans
-        * 2ème lettre : régime pluviométrique => Timeseries Clustering
+        * 2ème lettre : régime pluviométrique => TimeSeries Clustering
         * 3ème lettre : variations de températures => TimeSeriesClustering
         '''                
         
