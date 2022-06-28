@@ -293,7 +293,7 @@ def rapport():
         pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="800" type="application/pdf"></iframe>'
         st.markdown(pdf_display, unsafe_allow_html=True)
 
-    show_pdf('data/RainsberryPy Meteo - Rapport final-avec compression.pdf')
+    show_pdf('data/RainsberryPy_Meteo_Rapport_final_avec_compression.pdf')
 
     
 def clustering():
