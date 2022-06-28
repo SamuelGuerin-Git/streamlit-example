@@ -22,7 +22,7 @@ def main():
 
     Menu = st.sidebar.radio(
      "Menu",
-     ('Le Projet Météo', 'PreProcessing','DataViz','Modelisations','Performances','Simulations','Clustering','Séries Temporelles','Deep Learning','Conclusion'))
+     ('Le Projet Météo', 'PreProcessing','DataViz','Modelisations','Performances','Simulations','Clustering','Séries Temporelles','Deep Learning','Conclusion','Rapport'))
 
     if Menu == 'Le Projet Météo':
         from PIL import Image
@@ -38,6 +38,8 @@ def main():
         simulation()
     if Menu == 'Clustering':
         clustering()
+    if Menu == 'Rapport':
+        rapport()
 
     st.sidebar.text("")
     st.sidebar.text("Projet DataScientest")
@@ -284,6 +286,16 @@ def simulation():
     #    shap_values = explainer.shap_values(df[features])
     #    st_shap(shap.summary_plot(shap_values, df[features]),height=300)
     
+def rapport():
+    def show_pdf(file_path):
+        with open(file_path,"rb") as f:
+            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="800" type="application/pdf"></iframe>'
+        st.markdown(pdf_display, unsafe_allow_html=True)
+
+    show_pdf('data/RainsberryPy Meteo - Rapport final-avec compression.pdf')
+
+    
 def clustering():
  
     Menu_mod = st.sidebar.radio(
@@ -306,8 +318,8 @@ def clustering():
         ''' 
         ##### Stratégie Adoptée :
         * 1ère lettre : type de climat => Algorithme KMeans
-        * 2ème lettre : régime pluviométrique => TimeSeries Clustering
-        * 3ème lettre : variations de températures => TimeSeriesClustering
+        * 2ème lettre : régime pluviométrique => TimeSeriesKmeans Clustering
+        * 3ème lettre : variations de températures => TimeSeriesKmeans Clustering
         '''                
         
         
@@ -333,26 +345,71 @@ def clustering():
         st.image('images/1L_Coude.jpg')
         '''
         #### Nous considérons 10 clusters.
+        
+        ### Comparaison Classification de Koppen vs Clustering 
         '''
         st.image('images/1L_ResultatsTab.jpg')
+        '''
+        ### Comparaison localisée
+        '''
         st.image('images/1L_ResultatsMap.jpg')
-        
+        '''
+        #### => Climats extrêmes bien identifiés mais résultats moins convaincants pour les autres. 
+        '''
     def TSClustering2L():
-        st.subheader("Clustering: Régime pluviométrique")
+        st.subheader("Clustering: Régime pluviométrique => TimeSeriesKmeans")
+        '''
+        ### Preprocessing
+        ##### Sélection d'une plage de 3 ans et demi de données à partir de janvier 2014 - Plus grand plages avec des relevés consécutifs (données d'origine avec traitement KNN imputer).
+
+        #### Résultats du Clustering de Séries Temporelles:
+        '''
         st.image('images/2L_ResultatsPlot.jpg')
+        '''
+        ### Comparaison Classification de Koppen vs Clustering
+        '''
         st.image('images/21L_ResultatsTab.jpg')
+        '''
+        ### Comparaison Localisée
+        '''        
         st.image('images/2L_ResultatsMap.jpg')
+        '''
+        ##### => Le régime de mousson est bien isolé et le régime f associé au climat humide se retrouve seul dans de nombreux clusters (hormis 1).
+        '''
         
     def TSClustering3L():
         st.subheader("Clustering: Variation de température")
+        '''
+        ### Preprocessing
+        ##### Similaire à la classification précédente
+
+        #### Résultats du Clustering de Séries Temporelles:
+        '''
         st.image('images/3L_ResultatsPlot.jpg')
+        '''
+        ### Comparaison Classification de Koppen vs Clustering
+        '''
         st.image('images/3L_ResultatsTab.jpg')
+        '''
+        ### Comparaison Localisée
+        '''
         st.image('images/3L_ResultatsMap.jpg')
-        
+        '''
+        ##### => L’ensemble des classifications des variations de température est dans l’ensemble bien exécuté.
+        '''
     def Conclusion(): 
         st.subheader("Conclusion")
+        '''
+        ### Combinaison des différents clusters:
+        '''
         st.image('images/Clust_ResultatsTab.jpg')
+        '''
+        #### 32 clusters différents identifiés
+        '''
         st.image('images/FinalClust_ResultatsTab.jpg')
+        '''
+        #### Après regroupement des clusters identifiés sous la même classification de Koppen:
+        '''
         st.image('images/Final_ResultatsMap.jpg')
         
     if Menu_mod == 'Introduction et stratégie':
