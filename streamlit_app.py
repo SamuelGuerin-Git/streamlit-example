@@ -360,7 +360,7 @@ def clustering():
         st.subheader("Clustering: Régime pluviométrique => TimeSeriesKmeans")
         '''
         ### Preprocessing
-        #### Sélection d'une plage de 3 ans et demi de données à partir de janvier 2014 - Plus grand plages avec des relevés consécutifs (données d'origine avec traitement KNN imputer).
+        ##### Sélection d'une plage de 3 ans et demi de données à partir de janvier 2014 - Plus grand plages avec des relevés consécutifs (données d'origine avec traitement KNN imputer).
 
         #### Résultats du Clustering de Séries Temporelles:
         '''
@@ -374,14 +374,14 @@ def clustering():
         '''        
         st.image('images/2L_ResultatsMap.jpg')
         '''
-        #### => Le régime de mousson est bien isolé et le régime f associé au climat humide se retrouve seul dans de nombreux clusters (hormis 1).
+        ##### => Le régime de mousson est bien isolé et le régime f associé au climat humide se retrouve seul dans de nombreux clusters (hormis 1).
         '''
         
     def TSClustering3L():
         st.subheader("Clustering: Variation de température")
         '''
         ### Preprocessing
-        #### Similaire à la classification précédente
+        ##### Similaire à la classification précédente
 
         #### Résultats du Clustering de Séries Temporelles:
         '''
@@ -395,7 +395,7 @@ def clustering():
         '''
         st.image('images/3L_ResultatsMap.jpg')
         '''
-        #### => L’ensemble des classifications des variations de température est dans l’ensemble bien exécuté.
+        ##### => L’ensemble des classifications des variations de température est dans l’ensemble bien exécuté.
         '''
     def Conclusion(): 
         st.subheader("Conclusion")
