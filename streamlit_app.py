@@ -334,16 +334,27 @@ def clustering():
         '''
         #### Nous considérons 10 clusters.
         '''
+        st.image('images/1L_ResultatsTab.jpg')
+        st.image('images/1L_ResultatsMap.jpg')
         
     def TSClustering2L():
         st.subheader("Clustering: Régime pluviométrique")
+        st.image('images/2L_ResultatsPlot.jpg')
+        st.image('images/21L_ResultatsTab.jpg')
+        st.image('images/2L_ResultatsMap.jpg')
         
     def TSClustering3L():
         st.subheader("Clustering: Variation de température")
+        st.image('images/3L_ResultatsPlot.jpg')
+        st.image('images/3L_ResultatsTab.jpg')
+        st.image('images/3L_ResultatsMap.jpg')
         
     def Conclusion(): 
         st.subheader("Conclusion")
-
+        st.image('images/Clust_ResultatsTab.jpg')
+        st.image('images/FinalClust_ResultatsTab.jpg')
+        st.image('images/Final_ResultatsMap.jpg')
+        
     if Menu_mod == 'Introduction et stratégie':
         Intro()
         
