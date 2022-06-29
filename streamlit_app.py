@@ -151,7 +151,7 @@ def Modelisations():
 def Performances():
     st.header("Performances des modèles testés")
     st.image('images/Perf_intro.jpg')
-    st.image('images/Perf_intro1.jpg'    
+    st.image('images/Perf_intro1.jpg')    
     if st.checkbox("Courbe de ROC"):
         st.image('images/Perf_ROC.jpg')       
     if st.checkbox("Selon le seuil de détection"):
