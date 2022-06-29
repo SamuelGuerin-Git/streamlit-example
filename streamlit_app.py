@@ -158,6 +158,7 @@ def Performances():
         st.image('images/Perf_seuils1.jpg')          
     if st.checkbox("Conclusion"):
         st.image('images/Perf_conclusion.jpg')
+        st.image('images/Perf_conclusion1.jpg')
 
 def simulation():
     #Chargement du modele
