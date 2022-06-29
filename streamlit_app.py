@@ -88,13 +88,16 @@ def PreProcessing():
     st.write("Présentation du jeu de données : ") 
     st.text(s)
     
-    
-    
-    
-    
-    
+ 
 def DataViz():
     st.header("DataViz")
+    if st.checkbox("Corrélations de la pluie du lendemain (RainTomorrow) et de  l'ensoleillement (Sunshine)"):
+        st.image('images/Dataviz_corr.jpg')
+        st.image('images/Dataviz_corr1.jpg')        
+    if st.checkbox("Cartographie"):
+        st.image('images/Dataviz_carto.jpg')
+    if st.checkbox("Influence sur la pluie du lendemain"):
+        st.image('images/Dataviz_influence.jpg')         
 
 def Modelisations():
     st.header("Modélisations")
@@ -279,7 +282,7 @@ def simulation():
         Sortie = pd.concat([df[["Date","Location","Climat_Koppen","Clim_type_det","RainTomorrow_Num"]],predDf],axis=1)
         #st.write(Sortie)
 
-    st.subheader("Interprétabilité")
+    #st.subheader("Interprétabilité")
     
     #if st.button("Importance des features"):
     #    picklefile = open("modeles/xgboost.pkl", "rb")
