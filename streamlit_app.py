@@ -48,7 +48,7 @@ def main():
     st.sidebar.text("Lionel Bottan")  
     st.sidebar.text("Julien Coquard")  
     st.sidebar.text("Samuel Guérin")
-    st.sidebar.text("[Lien du git](https://github.com/DataScientest-Studio/RainsBerryPy)")
+    st.sidebar.write("[Lien du git](https://github.com/DataScientest-Studio/RainsBerryPy)")
     
 def PreProcessing():
     
@@ -289,7 +289,7 @@ def simulation():
     #    st_shap(shap.summary_plot(shap_values, df[features]),height=300)
     
 def rapport():
-    st.write("Lien git_hut :  [link](https://github.com/DataScientest-Studio/RainsBerryPy)")
+    st.write("[Lien git_hut :](https://github.com/DataScientest-Studio/RainsBerryPy)")
     def show_pdf(file_path):
         with open(file_path,"rb") as f:
             base64_pdf = base64.b64encode(f.read()).decode('utf-8')
