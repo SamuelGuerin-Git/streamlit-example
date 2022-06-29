@@ -95,13 +95,40 @@ def DataViz():
     st.header("DataViz")
     if st.checkbox("Corrélations de la pluie du lendemain (RainTomorrow) et de  l'ensoleillement (Sunshine)"):
         st.image('images/Dataviz_corr.jpg')
-        st.image('images/Dataviz_corr1.jpg')        
+        '''
+        #### Observations :
+        * L’analyse des corrélations nous montre que les liaisons entre les différents critères sont nombreuses.
+        * Quelles sont les variables les plus corrélées à RainTomorrow ?
+            * Ensoleillement : Sunshine
+            * Humidité : 3pm et 9am
+            * Couverture nuageuse : 3pm et 9am
+            * Pluie du jour : RainToday
+            * Pression atmosphérique : Pressure3pm et Pressure9am
+        * L'ensoleillement (Sunshine) est corrélé à RainTomorow_num malgré presque 50% de valeurs manquantes pour cette variable. Quand on regarde les corrélations, on peut imaginer de traiter ces valeurs manquantes en régressant Sunshine sur les critères les plus corrélés, à savoir :
+            * Couverture nuageuse : 3pm et 9am
+            * Humidité : 3pm et 9am
+            * Température : Temp3pm, MaxTemp, Temp9am
+        '''       
     if st.checkbox("Cartographie"):
         st.image('images/Dataviz_carto.jpg')
-        st.image('images/Dataviz_carto1.jpg')        
+        '''
+        #### Observations : 
+        * Les stations météo d'Australie sont regroupées en 4 climats différents :
+            * méditerrannéen : stations du sud-ouest et du sud-centre
+            * chaud_humide (tropical et subtropical humide) => côte est du pays
+            * tempéré_froid (tempéré océanique + montagnard) => plutôt sud-est
+            * sec (chaud et semi-aride, voire aride) => intérieur du pays
+        * La distribution mensuelle des précipitations illustre bien les différences de climat (mousson estivale pour le climat tropical, hivernale pour le climat méditerranéen).
+        * Pour les stations au climat sec, on observe 9% de jours de pluie alors que pour les autres on est aux alentours de 22, 23%.
+        '''       
     if st.checkbox("Influence sur la pluie du lendemain"):
         st.image('images/Dataviz_influence.jpg')
-        st.image('images/Dataviz_influence1.jpg')        
+        '''
+        #### Constats :
+        * La distribution des variables Sunshine et Humidity3pm est bien différente selon RainTomorrow.
+        * Pour MinTemp, la distribution est relativement similaire.
+        * Pour Rainfall et Evaporation, il faut appliquer la fonction log pour neutraliser l'influence des valeurs extrêmes. On voit aussi l'influence plus importante de Rainfall sur RainTomorrow (distribution différente).
+        '''      
 
 def Modelisations():
     st.header("Modélisations")
@@ -157,7 +184,15 @@ def Performances():
         st.image('images/Perf_seuils.jpg')
         st.image('images/Perf_seuils1.jpg')          
     if st.checkbox("Conclusion"):
-        st.image('images/Perf_conclusion.jpg')
+        '''
+        * La comparaison des algorithmes sur la courbe de ROC nous donne une liste de quatre algorithmes sensiblement plus performants que les autres :
+            * la Random Forest
+            * le Bagging
+            * la XGBoost
+            * la Light GBM
+        
+        * Les comparaisons sur le F1_score en choisissant différents seuils de probabilités (0.50, F1_max, recall=precision) vont nous conduite à préférer la XGBOOST qui est légèrement plus performante que la lightGBM sur le seuil "recall=precision".
+        '''
         st.image('images/Perf_conclusion1.jpg')
 
 def simulation():
