@@ -288,13 +288,14 @@ def simulation():
     #    st_shap(shap.summary_plot(shap_values, df[features]),height=300)
     
 def rapport():
+    st.write("Lien git_hut :  [link](https://github.com/DataScientest-Studio/RainsBerryPy)")
     def show_pdf(file_path):
         with open(file_path,"rb") as f:
             base64_pdf = base64.b64encode(f.read()).decode('utf-8')
         pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="800" type="application/pdf"></iframe>'
         st.markdown(pdf_display, unsafe_allow_html=True)
 
-    show_pdf('RainsberryPy_Meteo_Rapport_final_avec_compression.pdf')
+    show_pdf('https://github.com/DataScientest-Studio/RainsBerryPy/blob/main/RainsberryPy%20Meteo%20-%20Rapport%20final.pdf')
 
     
 def clustering():
