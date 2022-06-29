@@ -47,7 +47,8 @@ def main():
     st.sidebar.text("Promotion DataScientist Octobre 2021")
     st.sidebar.text("Lionel Bottan")  
     st.sidebar.text("Julien Coquard")  
-    st.sidebar.text("Samuel Guérin")      
+    st.sidebar.text("Samuel Guérin")
+    st.sidebar.text("Lien git_hut :  [link](https://github.com/DataScientest-Studio/RainsBerryPy)")
     
 def PreProcessing():
     
