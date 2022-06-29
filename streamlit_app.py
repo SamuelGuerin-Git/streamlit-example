@@ -206,8 +206,7 @@ def Performances():
     * La precision correspond au taux de prédictions correctes parmi les prédictions positives. Elle mesure la capacité du modèle à ne pas faire d’erreur lors d’une prédiction positive.
     * Le recall correspond au taux d’individus positifs détectés par le modèle. Il mesure la capacité du modèle à détecter l’ensemble des individus positifs.
     * Le F1-score évalue la capacité d’un modèle de classification à prédire efficacement les individus positifs, en faisant un compromis entre la precision et le recall (moyenne harmonique).
-    '''
-    st.image('images/Perf_intro.jpg')    
+    ''' 
     if st.checkbox("Courbe de ROC"):
         st.image('images/Perf_ROC.jpg')       
     if st.checkbox("Selon le seuil de détection"):
