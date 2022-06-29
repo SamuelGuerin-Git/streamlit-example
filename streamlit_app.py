@@ -177,6 +177,36 @@ def Modelisations():
 
 def Performances():
     st.header("Performances des modèles testés")
+    '''
+    #### Les algorithmes suivants ont été testés en prenant en compte les résultats des analyses précédentes :
+    * Rééquilibrage du jeu de données avec RandomUnderSampler. 
+    * Conservation de toutes les variables prédictives.
+    * Choix de l'algorithme sur le dataset sans les NA (données réelles)
+    * En revanche, application possible sur les données interpolées ce qui aurait l'intérêt de pouvoir avoir des prédictions sur les observations qui ont des valeurs manquantes (par exemple, les stations  qui ne mesurent pas certains indicateurs). 
+
+    #### Liste des algorithmes testés :
+    * Arbre de décision
+    * Boosting sur arbre de décision (Adaboost classifier)
+    * Isolation Forest (détection d’anomalies) => non présenté car vraiment trop dégradé.
+    * Régression logistique
+    * SVM
+    * KNN
+    * Random Forest
+    * Light GBM
+    * Bagging Classifier
+    * Stacking Classifier (avec les modèles préentrainés RandomForest, SVM et LogisticRegression)
+	
+    ##### Optimisation des modèles :
+    * Une grille de recherche sur les hyperparamètres a été construite pour les modèles avec le choix de maximiser le f1 comme métrique de performance et 3 folds pour limiter le surapprentissage.
+
+    ##### Choix du modèle :
+    * Le modèle final sera choisi au regard de la courbe de ROC, de l'AUC globale et surtout des métriques f1_score, precision, rappel sur la classe à modéliser.
+
+    ##### Définitions :
+    * La precision correspond au taux de prédictions correctes parmi les prédictions positives. Elle mesure la capacité du modèle à ne pas faire d’erreur lors d’une prédiction positive.
+    * Le recall correspond au taux d’individus positifs détectés par le modèle. Il mesure la capacité du modèle à détecter l’ensemble des individus positifs.
+    * Le F1-score évalue la capacité d’un modèle de classification à prédire efficacement les individus positifs, en faisant un compromis entre la precision et le recall (moyenne harmonique).
+    '''
     st.image('images/Perf_intro.jpg')    
     if st.checkbox("Courbe de ROC"):
         st.image('images/Perf_ROC.jpg')       
