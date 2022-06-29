@@ -379,7 +379,7 @@ def rapport():
         pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="800" type="application/pdf"></iframe>'
         st.markdown(pdf_display, unsafe_allow_html=True)
 
-    show_pdf('https://github.com/DataScientest-Studio/RainsBerryPy/blob/main/RainsberryPy%20Meteo%20-%20Rapport%20final.pdf')
+    show_pdf('https://github.com/SamuelGuerin-Git/RainsBerryPy_save/blob/cac5fac60f5e539aec938a343b8152b3587f9ba4/RainsberryPy%20Meteo%20-%20Rapport%20final.pdf')
 
     
 def clustering():
