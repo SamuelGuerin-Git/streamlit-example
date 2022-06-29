@@ -34,7 +34,9 @@ def main():
     if Menu == 'DataViz':
         DataViz()
     if Menu == 'Modelisations':
-        Modelisations()       
+        Modelisations()
+    if Menu == 'Performances':
+        Performances()          
     if Menu == 'Simulations':
         simulation()
     if Menu == 'Clustering':
@@ -96,8 +98,10 @@ def DataViz():
         st.image('images/Dataviz_corr1.jpg')        
     if st.checkbox("Cartographie"):
         st.image('images/Dataviz_carto.jpg')
+        st.image('images/Dataviz_carto1.jpg')        
     if st.checkbox("Influence sur la pluie du lendemain"):
-        st.image('images/Dataviz_influence.jpg')         
+        st.image('images/Dataviz_influence.jpg')
+        st.image('images/Dataviz_influence1.jpg')        
 
 def Modelisations():
     st.header("Modélisations")
@@ -143,6 +147,18 @@ def Modelisations():
         
     if Menu_mod == 'Conclusion':
         Conclusion()
+
+def Performances():
+    st.header("Performances des modèles testés")
+    st.image('images/Perf_intro.jpg')
+    st.image('images/Perf_intro1.jpg'    
+    if st.checkbox("Courbe de ROC"):
+        st.image('images/Perf_ROC.jpg')       
+    if st.checkbox("Selon le seuil de détection"):
+        st.image('images/Perf_seuils.jpg')
+        st.image('images/Perf_seuils1.jpg')          
+    if st.checkbox("Conclusion"):
+        st.image('images/Perf_conclusion.jpg')
 
 def simulation():
     #Chargement du modele
