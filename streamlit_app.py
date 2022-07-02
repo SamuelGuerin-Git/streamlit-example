@@ -35,7 +35,6 @@ def main():
         st.image(image)
 	'''
 	Le projet présenté dans ce streamlit a été développé dans le cadre de la formation Data Scientist de Datascientest.com - Promotion Octobre 2021.
-	
 	L'objectif premier de ce projet est de mettre en application les différents acquis de la formation sur la problématique de prévision météo et plus précisément la question essentielle: va-t-il pleuvoir demain?
 	'''
 	st.image('images/Intro_météo.jpg')
