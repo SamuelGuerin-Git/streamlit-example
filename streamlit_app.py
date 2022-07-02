@@ -31,8 +31,8 @@ def main():
 
     if Menu == 'Le Projet Météo':
         from PIL import Image
-        image = Image.open('images/RainsBerry.jpg')
-        st.image(image, caption='RainsBerry')
+        image = Image.open('images/RainsBerry_2.jpg')
+        st.image(image)
 	'''
 	Le projet présenté dans ce streamlit a été développé dans le cadre de la formation Data Scientist de Datascientest.com - Promotion Octobre 2021.
 	
