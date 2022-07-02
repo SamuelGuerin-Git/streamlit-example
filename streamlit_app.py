@@ -33,15 +33,13 @@ def main():
         from PIL import Image
         image = Image.open('images/RainsBerry_2.jpg')
         st.image(image)
-	'''
-	Le projet présenté dans ce streamlit a été développé dans le cadre de la formation Data Scientist de Datascientest.com - Promotion Octobre 2021.
-	L'objectif premier de ce projet est de mettre en application les différents acquis de la formation sur la problématique de prévision météo et plus précisément la question essentielle: va-t-il pleuvoir demain?
-	'''
+	st.write("Le projet présenté dans ce streamlit a été développé dans le cadre de la formation Data Scientist de Datascientest.com - Promotion Octobre 2021."
+		 "\n\n"
+		 "L'objectif premier de ce projet est de mettre en application les différents acquis de la formation sur la problématique de prévision météo et plus précisément la question essentielle: va-t-il pleuvoir demain?")
 	st.image('images/Intro_météo.jpg')
-	'''
-	En dehors d'intéresser particulièrement les fabricants de parapluie, on comprend aussi que cette question est essentielle que ce soit dans le domaine du loisirs (gestion des parcs d'attraction), de l'agriculture, le traffic routier, et bien d'autres sujets.
-	Le lien du repo github est disponible ici: https://github.com/DataScientest-Studio/RainsBerryPy
-	'''
+	st.write("En dehors d'intéresser particulièrement les fabricants de parapluie, on comprend aussi que cette question est essentielle que ce soit dans le domaine du loisirs (gestion des parcs d'attraction), de l'agriculture, le traffic routier, et bien d'autres sujets."
+		 "\n\n"
+		 "Le lien du repo github est disponible ici: https://github.com/DataScientest-Studio/RainsBerryPy")
     if Menu == 'Dataset & PreProcessing':
         PreProcessing()
     if Menu == 'DataViz':
