@@ -29,24 +29,12 @@ def main():
 	if Menu == 'Le Projet Météo':
 		from PIL import Image
 		image = Image.open('images/RainsBerry_2.jpg')
-		col1, col2, col3 = st.columns(3)
-		with col1:
-			st.write(' ')
-		with col2:
-			st.image(image)
-		with col3:
-			st.write(' ')
+		st.image(image,width=600,caption="")
 		'''
 		* Le projet présenté dans ce streamlit a été développé dans le cadre de la formation Data Scientist de Datascientest.com - Promotion Octobre 2021.
 		* L'objectif premier de ce projet est de mettre en application les différents acquis de la formation sur la problématique de prévision météo et plus précisément de répondre à une question essentielle: va-t-il pleuvoir demain?
 		'''
-		col1, col2, col3 = st.columns(3)
-		with col1:
-			st.write(' ')
-		with col2:
-			st.image('images/Intro_météo.jpg')
-		with col3:
-			st.write(' ')
+		st.image('images/Intro_météo.jpg',width=600,caption="")
 		'''
 		* En dehors d'intéresser particulièrement les fabricants de parapluie, on comprend aussi que cette question est essentielle que ce soit dans le domaine du loisirs (gestion des parcs d'attraction), de l'agriculture, le traffic routier, et bien d'autres sujets.
 		* Le lien du repo github est disponible ici: https://github.com/DataScientest-Studio/RainsBerryPy.
