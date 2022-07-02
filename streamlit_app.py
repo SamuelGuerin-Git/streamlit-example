@@ -13,6 +13,10 @@ import matplotlib.pyplot as plt
 import shap
 shap.initjs() # for visualization
 
+########################################################################################################################################################################
+# Définition du main()
+########################################################################################################################################################################
+
 def main():
     st.sidebar.title("RainsBerry")
     
@@ -29,6 +33,17 @@ def main():
         from PIL import Image
         image = Image.open('images/RainsBerry.jpg')
         st.image(image, caption='RainsBerry')
+	'''
+	Le projet présenté dans ce streamlit a été développé dans le cadre de la formation Data Scientist de Datascientest.com - Promotion Octobre 2021.
+	
+	L'objectif premier de ce projet est de mettre en application les différents acquis de la formation sur la problématique de prévision météo et plus précisément la question essentielle: va-t-il pleuvoir demain?
+	'''
+	st.image('images/Intro_météo.jpg')
+	'''
+	En dehors d'intéresser particulièrement les fabricants de parapluie, on comprend aussi que cette question est essentielle que ce soit dans le domaine du loisirs (gestion des parcs d'attraction), de l'agriculture, le traffic routier, et bien d'autres sujets.
+	
+	Le lien du repo github est disponible ici: https://github.com/DataScientest-Studio/RainsBerryPy
+	'''
     if Menu == 'PreProcessing':
         PreProcessing()
     if Menu == 'DataViz':
@@ -51,6 +66,10 @@ def main():
     st.sidebar.text("Julien Coquard")  
     st.sidebar.text("Samuel Guérin")
     st.sidebar.write("[Lien du git](https://github.com/DataScientest-Studio/RainsBerryPy)")
+
+########################################################################################################################################################################
+# Définition de la partie Preprocessing
+########################################################################################################################################################################
     
 def PreProcessing():
     
@@ -89,7 +108,10 @@ def PreProcessing():
     s = buffer.getvalue()
     st.write("Présentation du jeu de données : ") 
     st.text(s)
-    
+
+########################################################################################################################################################################
+# Définition de la partie DataViz
+########################################################################################################################################################################
  
 def DataViz():
     st.header("DataViz")
@@ -129,6 +151,10 @@ def DataViz():
         * Pour MinTemp, la distribution est relativement similaire.
         * Pour Rainfall et Evaporation, il faut appliquer la fonction log pour neutraliser l'influence des valeurs extrêmes. On voit aussi l'influence plus importante de Rainfall sur RainTomorrow (distribution différente).
         '''      
+	
+########################################################################################################################################################################
+# Définition de la partie modélisation
+########################################################################################################################################################################
 
 def Modelisations():
     st.header("Modélisations")
@@ -174,6 +200,10 @@ def Modelisations():
         
     if Menu_mod == 'Conclusion':
         Conclusion()
+
+########################################################################################################################################################################
+# Définition de la partie perfomance
+########################################################################################################################################################################
 
 def Performances():
     st.header("Performances des modèles testés")
@@ -223,6 +253,10 @@ def Performances():
         * Les comparaisons sur le F1_score en choisissant différents seuils de probabilités (0.50, F1_max, recall=precision) vont nous conduite à préférer la XGBOOST qui est légèrement plus performante que la lightGBM sur le seuil "recall=precision".
         '''
         st.image('images/Perf_conclusion1.jpg')
+
+########################################################################################################################################################################
+# Définition de la partie simulation
+########################################################################################################################################################################
 
 def simulation():
     #Chargement du modele
@@ -370,6 +404,10 @@ def simulation():
     #    explainer = shap.TreeExplainer(modele)
     #    shap_values = explainer.shap_values(df[features])
     #    st_shap(shap.summary_plot(shap_values, df[features]),height=300)
+
+########################################################################################################################################################################
+# Définition de la partie rapport
+########################################################################################################################################################################
     
 def rapport():
     st.write("[Lien git_hut :](https://github.com/DataScientest-Studio/RainsBerryPy)")
@@ -381,6 +419,9 @@ def rapport():
 
     show_pdf('https://github.com/SamuelGuerin-Git/RainsBerryPy_save/blob/cac5fac60f5e539aec938a343b8152b3587f9ba4/RainsberryPy%20Meteo%20-%20Rapport%20final.pdf')
 
+########################################################################################################################################################################
+# Définition de la partie clustering
+########################################################################################################################################################################
     
 def clustering():
  
@@ -415,7 +456,7 @@ def clustering():
         ### Preprocessing:
         #### Création d'un dataframe avec :
         * une ligne par ville
-        * pour chaque variable considérées, création d'un jeu de douze colonne avec le calcul de la moyenne mensuelle: 
+        * pour chaque variable considérée, création d'un jeu de douze colonnes avec le calcul de la moyenne mensuelle: 
             * 'MinTemp','MaxTemp','Temp9am','Temp3pm',
             * 'Rainfall',
             * 'Evaporation',
