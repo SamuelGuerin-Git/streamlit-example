@@ -27,7 +27,7 @@ def main():
 
     Menu = st.sidebar.radio(
      "Menu",
-     ('Le Projet Météo', 'PreProcessing','DataViz','Modelisations','Performances','Simulations','Clustering','Séries Temporelles','Deep Learning','Conclusion','Rapport'))
+     ('Le Projet Météo', 'Dataset & PreProcessing','DataViz','Modelisations','Performances','Simulations','Clustering','Séries Temporelles','Deep Learning','Conclusion','Rapport'))
 
     if Menu == 'Le Projet Météo':
         from PIL import Image
@@ -44,7 +44,7 @@ def main():
 	
 	Le lien du repo github est disponible ici: https://github.com/DataScientest-Studio/RainsBerryPy
 	'''
-    if Menu == 'PreProcessing':
+    if Menu == 'Dataset & PreProcessing':
         PreProcessing()
     if Menu == 'DataViz':
         DataViz()
@@ -75,8 +75,10 @@ def PreProcessing():
     
     from PIL import Image
     
-    st.header("PreProcessing")
-    
+    st.header("Dataset & PreProcessing")
+    '''
+    ###Dataset
+    '''
     st.subheader("Fichier source")
     image = Image.open('images/weatherAUS.jfif')
     st.image(image, caption='Relevé Météo en Australie')
@@ -108,6 +110,12 @@ def PreProcessing():
     s = buffer.getvalue()
     st.write("Présentation du jeu de données : ") 
     st.text(s)
+    
+    '''
+    ###Preprocessing
+    '''
+	
+
 
 ########################################################################################################################################################################
 # Définition de la partie DataViz
