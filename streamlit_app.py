@@ -40,7 +40,6 @@ def main():
 	st.image('images/Intro_météo.jpg')
 	'''
 	En dehors d'intéresser particulièrement les fabricants de parapluie, on comprend aussi que cette question est essentielle que ce soit dans le domaine du loisirs (gestion des parcs d'attraction), de l'agriculture, le traffic routier, et bien d'autres sujets.
-	
 	Le lien du repo github est disponible ici: https://github.com/DataScientest-Studio/RainsBerryPy
 	'''
     if Menu == 'Dataset & PreProcessing':
