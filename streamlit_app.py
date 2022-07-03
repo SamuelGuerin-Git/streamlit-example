@@ -52,7 +52,7 @@ def main():
 	if Menu == 'Clustering':
 		clustering()
 	if Menu == 'Conclusion':
-		Conclusion()
+		conclusion()
 	if Menu == 'Rapport':
 		rapport()
 	st.sidebar.text("")
