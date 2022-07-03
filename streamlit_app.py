@@ -175,14 +175,21 @@ def Modelisations():
         st.image('images/model_01_desequilibre.jpg')
         st.markdown("**Performances d'un modèle Random Forest sur le jeu de données complet :**")
         st.image('images/model_02_sans_equ.jpg')
-        if st.checkbox("Après équilibrage"):
-		st.image('images/model_03_avec_equ.jpg')
-		st.image('images/model_04_PrecRap.jpg')
+	if st.checkbox("Après équilibrage"):
+	    st.image('images/model_03_avec_equ.jpg')
+	    st.image('images/model_04_PrecRap.jpg')
+	if st.checkbox(("Modification du seuil de précision"):
+	    st.image('images/model_05_seuils_proba.jpg')
+            st.image('images/model_06_seuilmaxF1.jpg')
+	
+       # if st.checkbox("Après équilibrage"):
+	#	st.image('images/model_03_avec_equ.jpg')
+	#	st.image('images/model_04_PrecRap.jpg')
 		
 	#if st.checkbox("Précision et Rappel"):
-        if st.checkbox("Modification du seuil de décision"):
-            st.image('images/model_05_seuils_proba.jpg')
-            st.image('images/model_06_seuilmaxF1.jpg')
+        #if st.checkbox("Modification du seuil de décision"):
+       #     st.image('images/model_05_seuils_proba.jpg')
+        #    st.image('images/model_06_seuilmaxF1.jpg')
         
     def TraitementNA():
         st.subheader("Traitement des valeurs manquantes")
