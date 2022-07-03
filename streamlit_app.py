@@ -177,6 +177,8 @@ def Modelisations():
         st.image('images/model_02_sans_equ.jpg')
         if st.checkbox("Après équilibrage"):
             st.image('images/model_03_avec_equ.jpg')
+	if st.checkbox("Précision et Rappel"):
+	    st.image('images/model_04_PrecRap.jpg')
         if st.checkbox("Modification du seuil de décision"):
             st.image('images/model_05_seuils_proba.jpg')
             st.image('images/model_06_seuilmaxF1.jpg')
