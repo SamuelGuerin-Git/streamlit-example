@@ -200,6 +200,9 @@ def Modelisations():
         '''
 	
     def SelectionVar():
+        '''
+        #### **Hypothèse : Des variables peu pertinentes perturbent le modèle, ce qui affecte ses performances.**
+        '''
         st.subheader("Sélection de variables")
         st.image('images/model_09_selectKBest.jpg') 
         '''
