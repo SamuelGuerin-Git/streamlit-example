@@ -178,7 +178,7 @@ def Modelisations():
         if st.checkbox("Après équilibrage"):
             st.image('images/model_03_avec_equ.jpg')
             st.image('images/model_04_PrecRap.jpg')
-        if st.checkbox("Modification du seuil de précision"):
+        if st.checkbox("Modification du seuil de détection de la classe 1"):
             st.image('images/model_05_seuils_proba.jpg')
             st.image('images/model_06_seuilmaxF1.jpg')
 	            
