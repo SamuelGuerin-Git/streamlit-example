@@ -184,6 +184,12 @@ def Modelisations():
 	            
     def TraitementNA():
         st.subheader("Traitement des valeurs manquantes")
+	'''
+        #### Trois techniques ont été utilisées pour traiter les valeurs manquantes et créer trois jeux de données : 
+	* Remplacement des valeurs manquantes par la méthode KNN-Imputer.
+        * Suppression des observations possédant des valeurs manquantes par la méthode dropna.
+        * Suppression des quatre variables possédant le plus de valeurs manquantes, puis suppression des observations restantes possédant des NaN.
+        '''       
         st.image('images/model_07_proportionsNA.jpg')
         if st.checkbox("Scores"):
             st.markdown("**Scores en fonction du jeu de données :**")
