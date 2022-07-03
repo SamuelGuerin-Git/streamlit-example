@@ -185,7 +185,8 @@ def Modelisations():
     def TraitementNA():
         st.subheader("Traitement des valeurs manquantes")
         '''
-        #### Trois techniques ont été utilisées pour traiter les valeurs manquantes et créer trois jeux de données : 
+        ### **Hypothèse : Les performances dépendent de la méthode de traitement des valeurs manquantes.**
+        ##### Trois techniques ont été utilisées pour traiter les valeurs manquantes et créer trois jeux de données : 
         * Remplacement des valeurs manquantes par la méthode KNN-Imputer.
         * Suppression des observations possédant des valeurs manquantes par la méthode dropna.
         * Suppression des quatre variables possédant le plus de valeurs manquantes, puis suppression des observations restantes possédant des NaN.
@@ -194,7 +195,10 @@ def Modelisations():
         if st.checkbox("Scores"):
             st.markdown("**Scores en fonction du jeu de données :**")
             st.image('images/model_08_scores_JD.jpg')
-        
+        '''
+        ##### Conclusion : Le jeu de données dropna présentent les meilleures performances, en plus d'être le plus rapide.
+        '''
+	
     def SelectionVar():
         st.subheader("Sélection de variables")
         st.image('images/model_09_selectKBest.jpg') 
