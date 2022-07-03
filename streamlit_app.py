@@ -87,6 +87,7 @@ def PreProcessing():
     
     st.write("Principaux climats australiens") 
     image = Image.open('images/grd_climats.png')
+    st.image(image, caption='Climats australiens')
    	
     st.write("Classification de Köppen") 
     image = Image.open('images/clim_koppen.png')
