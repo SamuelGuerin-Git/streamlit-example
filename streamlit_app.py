@@ -195,9 +195,9 @@ def Modelisations():
         if st.checkbox("Scores"):
             st.markdown("**Scores en fonction du jeu de données :**")
             st.image('images/model_08_scores_JD.jpg')
-        '''
-        ##### Conclusion : Le jeu de données dropna présentent les meilleures performances, en plus d'être le plus rapide.
-        '''
+            '''
+            ##### Conclusion : Le jeu de données dropna présentent les meilleures performances, en plus d'être le plus rapide.
+            '''
 	
     def SelectionVar():
         st.subheader("Sélection de variables")
