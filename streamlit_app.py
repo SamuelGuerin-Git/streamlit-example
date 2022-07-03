@@ -185,7 +185,7 @@ def Modelisations():
     def TraitementNA():
         st.subheader("Traitement des valeurs manquantes")
         '''
-        #### <font color=‘blue’>Hypothèse : Les performances dépendent de la méthode de traitement des valeurs manquantes.</font>, unsafe_allow_html=True)
+        #### **Hypothèse : Les performances dépendent de la méthode de traitement des valeurs manquantes.**
         ##### Trois techniques ont été utilisées pour traiter les valeurs manquantes et créer trois jeux de données : 
         * Remplacement des valeurs manquantes par la méthode KNN-Imputer.
         * Suppression des observations possédant des valeurs manquantes par la méthode dropna.
@@ -202,10 +202,18 @@ def Modelisations():
     def SelectionVar():
         st.subheader("Sélection de variables")
         st.image('images/model_09_selectKBest.jpg') 
+        '''
+        ##### Conclusion : À partir de six variables, on observe une croissance de toutes les métriques au fur et à mesure qu’on intègre des variables au modèle. 
+        Il n'est donc pas nécessaire de supprimer des variables pour améliorer les scores.
+        '''
   
     def Conclusion():
         st.subheader("Conclusion")
-        
+        '''
+        #### * Le rééchantillonnage permet d'obtenir des scores légèrement meilleurs, mais c'est surtout le choix du seuil de décision qui a le plus d'impact sur les performances.
+        #### * L'interpolation des valeurs manquantes par KNN Imputer réduit les performances au lieu de les améliorer. Il est préférable d’utiliser un jeu de données où les valeurs manquantes ont simplement été supprimées.
+        #### * Le retrait de certaines variables n’améliore pas les performances. Toutes les variables peuvent être utilisées pour entrainer nos modèles.
+        '''
          
     if Menu_mod == 'Equilibrage des classes':
         Equilibrage()
