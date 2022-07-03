@@ -25,7 +25,7 @@ def main():
 	#layout="wide",)
 	Menu = st.sidebar.radio(
 		"Menu",
-		('Le Projet Météo', 'Dataset & PreProcessing','DataViz','Modelisations','Performances','Simulations','Clustering','Séries Temporelles','Deep Learning','Conclusion','Rapport'))
+		('Le Projet Météo', 'Dataset & PreProcessing','DataViz','Modelisations','Performances','Simulations','Clustering','Séries Temporelles','Conclusion','Rapport'))
 	if Menu == 'Le Projet Météo':
 		from PIL import Image
 		image = Image.open('images/RainsBerry_2.jpg')
@@ -484,8 +484,8 @@ def rapport():
 ########################################################################################################################################################################
  
 def conclusion():
+    st.header("Conclusion")
     '''
-    ### Conclusion
     * Notre projet RainsBerryPy nous a permis de mettre en application les différents apprentissages de la formation de Datascientist commencée en octobre 2021 : preprocessing, manipulation de dataframe, DataViz, Machine Learning, interprétabilité, clustering, séries temporelles et même Deep Learning. 
 
     * Un projet complet qui nous a permis de mettre en avant notre esprit d’initiative en recherchant :
