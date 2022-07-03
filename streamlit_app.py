@@ -285,7 +285,35 @@ def Performances():
         '''
         st.image('images/Perf_conclusion1.jpg')
     if st.checkbox("Deep Learning"):
+        '''
+        L’objectif de cette section est de tester des modèles de Deep Learning pour prédire RainTomorrow et de comparer les performances obtenues aux modèles de Machine Learning classique présentés ci dessus.
+        * 2 types de réseaux de neurones ont été testés :
+        '''
+        if st.checkbox("1-Modèles denses classiques"):
+            '''
+            * Plusieurs modèles ont été construits en faisant varier les caractéristiques suivantes :
+                * Augmentation du nombres de couches : de 4 à 5 couches de neurones
+                * Augmentation du nombre de neurones des couches
+                * Changement de la fonction d’activation : tanh, ReLu
+                * Changement de l’initialisateur : normal, Xavier, HeNormal
+                * Diminution de la taille du batch : 32, 16
+            * L’ensemble des résultats obtenus par les premiers modèles sont assez similaires, les performances ne sont pas significativement différentes, en particulier si l’on considère les variations d’un entrainement à l’autre. 
+            * Le meilleur modèle donne les résultats suivants (après rééchantillonnage) :
+            '''
+            st.image('images/DeepLearning_dense.jpg')
+        if st.checkbox("2-Fast AI"):
+            '''
+            * Pour compléter l’étude ci-dessus, un modèle de Deep Learning utilisant la bibliothèque FastAI a été développé en s’inspirant de la littérature disponible sur le web :
+            * Les performances obtenues par le modèle sont reportées dans les tableaux ci-dessous :
+            '''
+            st.image('images/DeepLearning_FastAI.jpg')
+        if st.checkbox("3-Conclusion Deep Lerning"):
+            '''
+            * Les modèles de Deep Learning développés n’ont pas démontré de meilleurs résultats que les modèles de Machine Learning classique étudiés en début de projet.
+            * Par ailleurs, au-delà des performances peu convaincantes sur notre jeu de données, le manque d’interprétabilité des modèles de Deep Learning par rapport au Machine Learning classique ne pousse pas à les développer davantage lors de ce projet.
+            '''
 
+        
 ########################################################################################################################################################################
 # Définition de la partie simulation
 ########################################################################################################################################################################
