@@ -52,7 +52,7 @@ def main():
 	if Menu == 'Clustering':
 		clustering()
 	if Menu == 'Conclusion':
-		conclusion_generale()
+		Conclusion()
 	if Menu == 'Rapport':
 		rapport()
 	st.sidebar.text("")
@@ -284,6 +284,7 @@ def Performances():
         * Les comparaisons sur le F1_score en choisissant différents seuils de probabilités (0.50, F1_max, recall=precision) vont nous conduite à préférer la XGBOOST qui est légèrement plus performante que la lightGBM sur le seuil "recall=precision".
         '''
         st.image('images/Perf_conclusion1.jpg')
+    if st.checkbox("Deep Learning"):
 
 ########################################################################################################################################################################
 # Définition de la partie simulation
@@ -454,7 +455,7 @@ def rapport():
 # Définition de la partie conclusion générale
 ########################################################################################################################################################################
  
-def conclusion_generale():
+def conclusion():
     '''
     ### Conclusion
     * Notre projet RainsBerryPy nous a permis de mettre en application les différents apprentissages de la formation de Datascientist commencée en octobre 2021 : preprocessing, manipulation de dataframe, DataViz, Machine Learning, interprétabilité, clustering, séries temporelles et même Deep Learning. 
