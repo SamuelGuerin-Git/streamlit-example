@@ -185,7 +185,7 @@ def Modelisations():
     def TraitementNA():
         st.subheader("Traitement des valeurs manquantes")
         '''
-        #### <*font color=‘blue’>Hypothèse : Les performances dépendent de la méthode de traitement des valeurs manquantes.</*font>, unsafe_allow_html=True)
+        #### <font color=‘blue’>Hypothèse : Les performances dépendent de la méthode de traitement des valeurs manquantes.</font>, unsafe_allow_html=True)
         ##### Trois techniques ont été utilisées pour traiter les valeurs manquantes et créer trois jeux de données : 
         * Remplacement des valeurs manquantes par la méthode KNN-Imputer.
         * Suppression des observations possédant des valeurs manquantes par la méthode dropna.
