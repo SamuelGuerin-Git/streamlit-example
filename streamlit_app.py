@@ -85,9 +85,13 @@ def PreProcessing():
     
     st.subheader("Ajout de nouvelles données") 
     
-    st.write("Classification de Koppen") 
+    st.write("Principaux climats australiens") 
     image = Image.open('images/grd_climats.png')
+   	
+    st.write("Classification de Köppen") 
+    image = Image.open('images/clim_koppen.png')
     st.image(image, caption='Climats - Classification de Koppen')
+	
     df=pd.read_csv('data/climatsAUS_v2.csv') #Read our data dataset
     buffer = io.StringIO()
     df.info(buf=buffer)
