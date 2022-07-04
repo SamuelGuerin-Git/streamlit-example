@@ -110,7 +110,7 @@ def PreProcessing():
 	st.text(s)
 	st.write("Coordonnées GPS")
 	image = Image.open('images/GPS.jfif',width=600)
-	st.image(image, caption='Coordonnées GPS',width=600)
+	st.image(image, caption='Coordonnées GPS')
 	df=pd.read_csv('data/aus_town_gps.csv') #Read our data dataset
 	buffer = io.StringIO()
 	df.info(buf=buffer)
