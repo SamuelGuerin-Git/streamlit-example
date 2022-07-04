@@ -481,7 +481,6 @@ def serie_temp():
 		* RainFall, le niveau de précipitation en mm
 		* Humidity3pm, le taux d'humidité à 15h
 		* MaxTemp, la température maximale.
-		
 		Deux études distinctes ont été menées :
 		* Étude sur sept villes représentatives des climats australiens:
 		'''
@@ -507,7 +506,6 @@ def serie_temp():
 				=> Métrique intéressante pour évaluer les erreurs lorsque les valeurs réelles sont nulles ou proches de zéro. (https://resdntalien.github.io/blog/wmape/)
 				* Pourcentage de corrélation de Pearson entre les valeurs réelles et prédites.
 		Remarque : D’autres métriques, telle que la MAE, ont été calculées. Elles présentent toutes des résultats concordants pour l’ensemble des modèles testés et ne seront pas présentées.
-
 		'''
 		
 	def Results_1():
@@ -519,16 +517,10 @@ def serie_temp():
 		st.image('images/ST_CourbeIndic_MaxTemp.jpg',width=600)
 		'''
 		## Observations et interprétations:
-		
 		* La saisonnalité de Rainfall est particulièrement marquée pour Cairns et Darwin avec un pic de précipitations important en février. Ces deux villes étant situées en climat tropical, elles possèdent une période de mousson importante en été.
 		* Pour Humidity3pm, la saisonnalité n’est pas très marquée mais les niveaux sont bien différents entre AliceSprings (climat sec) et Norfolk Island (climat humide).
 		* MaxTemp possède une saisonnalité importante pour les villes situées au sud (climats méditerranéen et océanique), tandis que les villes situées plus proche de l’équateur (Cairns et Darwin – climat tropical) présentent un hiver beaucoup plus doux et donc une saisonnalité moins marquée.
-		
 		Les deux sous-sections suivantes détaillent les résultats obtenus pour deux villes : Canberra et Cairns.
-
-		'''
-
-		'''
 		## Résultats obtenus pour :
 		'''
 		if st.checkbox('Canberra'):
@@ -549,27 +541,24 @@ def serie_temp():
 	def Results_2():
 		'''
 		## Ici on s’intéresse non plus à une ville mais à la moyenne mensuelle de l’ensemble des villes d’un climat donné.
-		
 		## Hypothèse de travail : 
 		* La variable Rainfall présente une forte périodicité pour les climats caractérisés par une période de mousson : 
 		* climat tropical (Aw + Am)
 		* et climat méditerranéen (Csa + Csb).
 		La période de mousson est différente en climat méditerranéen (mousson hivernale) et en climat tropical (mousson estivale). Il est donc nécessaire d'étudier ces deux climats séparément.
-		
 		La méthodologie est la même que celle utilisée pour les analyse par ville.
-		
 		## Observations:
 		'''
-		st.image('ST_CourbeIndic_Rainfall_climat',width=600)
-		st.image('ST_CourbeIndic_Rainfall_climat_saison',width=600)
+		st.image('ST_CourbeIndic_Rainfall_climat.jpg',width=600)
+		st.image('ST_CourbeIndic_Rainfall_climat_saison.jpg',width=600)
 		'''
 		Les graphiques confirment notre hypothèse : les deux séries possèdent une forte saisonnalité mais avec un décalage d'une demi-période environ.
 		La moyenne mobile, calculée sur 12 mois, évolue peu, mais les séries ne sont pas complètement stationnaires. 
 		Le climat tropical présente notamment une diminution des pics de précipitations après 2012.
 		'''
-		st.image('ST_ResultTab_RainfallClimat',width=600)
-		st.image('ST_ResultCurv_Rainfall_med',width=600)
-		st.image('ST_ResultCurv_Rainfall_trop',width=600)
+		st.image('ST_ResultTab_RainfallClimat.jpg',width=600)
+		st.image('ST_ResultCurv_Rainfall_med.jpg',width=600)
+		st.image('ST_ResultCurv_Rainfall_trop.jpg',width=600)
 		'''
 		## Conclusion
 		Les performances sont meilleures sur ces deux climats que sur les villes prises indépendamment, avec des erreurs plus faible et un coefficient de corrélation dépassant les 75 %. 
