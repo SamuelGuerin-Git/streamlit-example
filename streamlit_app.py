@@ -34,7 +34,7 @@ def main():
 		* Le projet présenté dans ce streamlit a été développé dans le cadre de la formation Data Scientist de Datascientest.com - Promotion Octobre 2021.
 		* L'objectif premier de ce projet est de mettre en application les différents acquis de la formation sur la problématique de prévision météo et plus précisément de répondre à une question essentielle: va-t-il pleuvoir demain?
 		'''
-		st.image('images/Intro_météo.jpg',width=600,caption="")
+		st.image('images/Intro_météo.jpg',width=650,caption="")
 		'''
 		* En dehors d'intéresser particulièrement les fabricants de parapluie, on comprend aussi que cette question est essentielle que ce soit dans le domaine des loisirs (gestion des parcs d'attraction), de l'agriculture, du traffic routier, et bien d'autres sujets.
 		* Le lien du repo github est disponible ici: https://github.com/DataScientest-Studio/RainsBerryPy.
@@ -77,7 +77,7 @@ def PreProcessing():
     '''
     st.subheader("Fichier source")
     image = Image.open('images/weatherAUS.jfif')
-    st.image(image, caption='Relevé Météo en Australie')
+    st.image(image, caption='Relevé Météo en Australie',width=600)
     df=pd.read_csv('data/weatherAUS.csv') #Read our data dataset
     buffer = io.StringIO()
     df.info(buf=buffer)
@@ -87,13 +87,13 @@ def PreProcessing():
     
     st.subheader("Ajout de nouvelles données") 
     
-    st.write("Principaux climats australiens") 
+    st.write("Principaux climats australiens",width=600) 
     image = Image.open('images/grd_climats.png')
-    st.image(image, caption='Climats australiens')
+    st.image(image, caption='Climats australiens',width=600)
    	
     st.write("Classification de Köppen") 
     image = Image.open('images/clim_koppen.png')
-    st.image(image, caption='Climats - Classification de Koppen')
+    st.image(image, caption='Climats - Classification de Koppen',width=600)
 	
     df=pd.read_csv('data/climatsAUS_v2.csv') #Read our data dataset
     buffer = io.StringIO()
@@ -104,7 +104,7 @@ def PreProcessing():
     
     st.write("Coordonnées GPS")     
     image = Image.open('images/GPS.jfif')
-    st.image(image, caption='Coordonnées GPS')
+    st.image(image, caption='Coordonnées GPS',width=600)
     df=pd.read_csv('data/aus_town_gps.csv') #Read our data dataset
     buffer = io.StringIO()
     df.info(buf=buffer)
