@@ -75,10 +75,10 @@ def PreProcessing():
     
     st.header("Dataset & PreProcessing")
     '''
-    ###Dataset
+    ### Dataset
     '''
     st.subheader("Fichier source")
-    image = Image.open('images/weatherAUS.jfif')
+    image = Image.open('images/weatherAUS.jpg')
     st.image(image, caption='Relevé Météo en Australie',width=600)
     df=pd.read_csv('data/weatherAUS.csv') #Read our data dataset
     buffer = io.StringIO()
