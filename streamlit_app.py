@@ -53,6 +53,8 @@ def main():
 		clustering()
 	if Menu == 'Conclusion':
 		conclusion()
+	if Menu == 'Séries Temporelles':
+		serie_temp()
 	if Menu == 'Rapport':
 		rapport()
 	st.sidebar.text("")
@@ -464,6 +466,129 @@ def simulation():
     #    explainer = shap.TreeExplainer(modele)
     #    shap_values = explainer.shap_values(df[features])
     #    st_shap(shap.summary_plot(shap_values, df[features]),height=300)
+
+########################################################################################################################################################################
+# Définition de la partie séries temporelles
+########################################################################################################################################################################
+    
+def serie_temp():
+	Menu_mod = st.sidebar.radio(
+		"Séries temporelles",
+		('Introduction','Observations et interprétations','1ère étude','2nde étude'))
+	
+	if Menu_mod == 'Introduction & méthodologie':
+		Intro()
+	if Menu_mod == '1ère étude':
+		Results_1()
+	if Menu_mod == '2nde étude':
+		Results_2()
+		
+	def Intro():
+		'''
+		### Introduction
+		Cette section traite des séries temporelles sur différents indicateurs. Notre choix s’est porté sur les indicateurs suivants :
+		* RainFall, le niveau de précipitation en mm
+		* Humidity3pm, le taux d'humidité à 15h
+		* MaxTemp, la température maximale.
+		
+		Deux études distinctes ont été menées :
+		* Étude sur sept villes représentatives des climats australiens:
+		'''
+		st.image('images/ST_Liste_Villes.jpg',width=600)
+		st.image('images/ST_Carte_Villes.jpg',width=600)
+		'''
+		* Étude sur deux climats aux saisons des pluies opposées, en regroupant l’ensemble des stations. Cette étude se limitera à Rainfall:
+		'''
+		st.image('images/ST_Carte_Villes_2.jpg',width=600)
+		'''
+		## Méthodologie:
+		* Interpolation des valeurs manquantes sur les données quotidiennes.
+		* Prévisions faites sur les données mensuelles.
+		* Conservation des 24 derniers mois comme base de validation des modèles.
+		* Algorithmes testés :
+			* Autoarima : pour trouver les meilleurs paramètres des SARIMA
+			* SARIMAX : pour appliquer notre modèle final (qui peut être ajusté par rapport à l’Autoarima)
+			* Prophet (algorithme de Facebook) en complément de SARIMAX.
+		* Comparaison des performances des modèles : 
+			* Deux métriques de mesure de l’erreur :
+				* RMSE (erreur moyenne quadratique) : MaxTemp et Humidity3pm
+				* WMAPE (Weighted Mean Absolute Percentage Error) pour RainFall
+				=> Métrique intéressante pour évaluer les erreurs lorsque les valeurs réelles sont nulles ou proches de zéro. (https://resdntalien.github.io/blog/wmape/)
+				* Pourcentage de corrélation de Pearson entre les valeurs réelles et prédites.
+		Remarque : D’autres métriques, telle que la MAE, ont été calculées. Elles présentent toutes des résultats concordants pour l’ensemble des modèles testés et ne seront pas présentées.
+
+		'''
+	
+
+		
+	def Results_1():
+		'''
+		## Visualisation de l’évolution des moyennes mensuelles pour les trois indicateurs:
+		'''
+		st.image('images/ST_CourbeIndic_Rainfall.jpg',width=600)
+		st.image('images/ST_CourbeIndic_Hum3pm.jpg',width=600)
+		st.image('images/ST_CourbeIndic_MaxTemp.jpg',width=600)
+		'''
+		## Observations et interprétations:
+		
+		* La saisonnalité de Rainfall est particulièrement marquée pour Cairns et Darwin avec un pic de précipitations important en février. Ces deux villes étant situées en climat tropical, elles possèdent une période de mousson importante en été.
+		* Pour Humidity3pm, la saisonnalité n’est pas très marquée mais les niveaux sont bien différents entre AliceSprings (climat sec) et Norfolk Island (climat humide).
+		* MaxTemp possède une saisonnalité importante pour les villes situées au sud (climats méditerranéen et océanique), tandis que les villes situées plus proche de l’équateur (Cairns et Darwin – climat tropical) présentent un hiver beaucoup plus doux et donc une saisonnalité moins marquée.
+		
+		Les deux sous-sections suivantes détaillent les résultats obtenus pour deux villes : Canberra et Cairns.
+
+		'''
+
+		'''
+		## Résultats obtenus pour :
+		'''
+		if st.checkbox('Canberra'):
+			st.image('ST_ResultTab_Camberra.jpg',width=600)
+			st.image('ST_ResultCurv_Camberra_Rainfall.jpg',width=600)
+			st.image('ST_ResultCurv_Camberra_Hum3pm.jpg',width=600)
+			st.image('ST_ResultCurv_Camberra_MaxTemp.jpg',width=600)
+		if st.checkbox('Cairns'):
+			st.image('ST_ResultTab_Cairns.jpg',width=600)
+			st.image('ST_ResultCurv_Cairns_Rainfall.jpg',width=600)
+			st.image('ST_ResultCurv_Cairns_Hum3pm.jpg',width=600)
+			st.image('ST_ResultCurv_Cairns_MaxTemp.jpg',width=600)
+		'''
+		## Conclusion:
+		Comme on pouvait s’y attendre, les variations aléatoires quotidiennes rendent les prédictions plus difficiles sur Rainfall que sur MaxTemp, comme le montre la superposition des courbes des prédictions et de la série originelle. Pour MaxTemp, le coefficient de corrélation dépasse en effet 90 % pour tous les modèles. Humidity3pm présente sur ce point, un profil intermédiaire. Pour les trois indicateurs météorologiques, les performances sont meilleures sur Cairns que sur Canberra. La différence entre les deux villes est particulièrement marquée pour Rainfall, avec un coefficient de corrélation de 61 % pour Cairns (comparable à celui d’Humidity), alors qu’il n’est que de 20 % pour Canberra. Cette différence peut s’expliquer si l’on prend en compte le climat des deux villes. Cairns présente en effet un climat tropical, avec des saisons plus marquées en termes de précipitations que Canberra, dont le climat est océanique.
+		'''
+		
+	def Results_2():
+		'''
+		## Ici on s’intéresse non plus à une ville mais à la moyenne mensuelle de l’ensemble des villes d’un climat donné.
+		
+		## Hypothèse de travail : 
+		* La variable Rainfall présente une forte périodicité pour les climats caractérisés par une période de mousson : 
+		* climat tropical (Aw + Am)
+		* et climat méditerranéen (Csa + Csb).
+		La période de mousson est différente en climat méditerranéen (mousson hivernale) et en climat tropical (mousson estivale). Il est donc nécessaire d'étudier ces deux climats séparément.
+		
+		La méthodologie est la même que celle utilisée pour les analyse par ville.
+		
+		## Observations:
+		'''
+		st.image('ST_CourbeIndic_Rainfall_climat',width=600)
+		st.image('ST_CourbeIndic_Rainfall_climat_saison',width=600)
+		'''
+		Les graphiques confirment notre hypothèse : les deux séries possèdent une forte saisonnalité mais avec un décalage d'une demi-période environ.
+		La moyenne mobile, calculée sur 12 mois, évolue peu, mais les séries ne sont pas complètement stationnaires. 
+		Le climat tropical présente notamment une diminution des pics de précipitations après 2012.
+		'''
+		st.image('ST_ResultTab_RainfallClimat',width=600)
+		st.image('ST_ResultCurv_Rainfall_med',width=600)
+		st.image('ST_ResultCurv_Rainfall_trop',width=600)
+		'''
+		## Conclusion
+		Les performances sont meilleures sur ces deux climats que sur les villes prises indépendamment, avec des erreurs plus faible et un coefficient de corrélation dépassant les 75 %. 
+		On remarque aussi de performances légèrement meilleures pour le climat méditerranéen que pour le climat tropical, si l’on considère l’erreur WMAPE. Cette différence peut s’interpréter par une meilleure stationnarité de la série méditerranéenne, visible en observant la courbe de la moyenne mobile
+		'''
+
+		
+	
 
 ########################################################################################################################################################################
 # Définition de la partie rapport
