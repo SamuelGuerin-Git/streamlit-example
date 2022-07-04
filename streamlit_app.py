@@ -475,6 +475,7 @@ def serie_temp():
 	Menu_mod = st.sidebar.radio("Séries temporelles",('Introduction & méthodologie','1ère étude','2nde étude'))	
 		
 	def Intro():
+		st.subheader('Introduction & Méthodologie')
 		'''
 		## Introduction
 		Cette section traite des séries temporelles sur différents indicateurs. Notre choix s’est porté sur les indicateurs suivants :
@@ -509,6 +510,7 @@ def serie_temp():
 		'''
 		
 	def Results_1():
+		st.subheader('Étude sur les villes représentatives des climats australiens:')
 		'''
 		## Visualisation de l’évolution des moyennes mensuelles pour les trois indicateurs:
 		'''
@@ -539,6 +541,7 @@ def serie_temp():
 		'''
 		
 	def Results_2():
+		st.subheader('Étude sur deux climats aux saisons des pluies opposées')
 		'''
 		## Ici on s’intéresse non plus à une ville mais à la moyenne mensuelle de l’ensemble des villes d’un climat donné.
 		## Hypothèse de travail : 
