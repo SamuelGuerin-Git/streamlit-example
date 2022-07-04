@@ -109,7 +109,7 @@ def PreProcessing():
 	st.write("Présentation du jeu de données : ")
 	st.text(s)
 	st.write("Coordonnées GPS")
-	image = Image.open('images/GPS.jfif',width=600)
+	image = Image.open('images/GPS.jfif')
 	st.image(image, caption='Coordonnées GPS')
 	df=pd.read_csv('data/aus_town_gps.csv') #Read our data dataset
 	buffer = io.StringIO()
