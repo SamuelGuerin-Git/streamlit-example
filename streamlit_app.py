@@ -70,52 +70,71 @@ def main():
 ########################################################################################################################################################################
     
 def PreProcessing():
-    
-    from PIL import Image
-    
-    st.header("Dataset & PreProcessing")
-        
-    image = Image.open('images/weatherAUS.jpg')
-    st.image(image, caption='Relevé Météo en Australie',width=600)
-    
-    st.subheader("Dataset originel")
-    df=pd.read_csv('data/weatherAUS.csv') #Read our data dataset
-    buffer = io.StringIO()
-    df.info(buf=buffer)
-    s = buffer.getvalue()
-    st.write("Présentation du jeu de données : ") 
-    st.text(s)
-    
-    st.subheader("Ajout de nouvelles données") 
-    
-    st.write("Principaux climats australiens",width=600) 
-    image = Image.open('images/grd_climats.png')
-    st.image(image, caption='Climats australiens',width=600)
-   	
-    st.write("Classification de Köppen") 
-    image = Image.open('images/clim_koppen.png')
-    st.image(image, caption='Climats - Classification de Koppen',width=600)
-	
-    df=pd.read_csv('data/climatsAUS_v2.csv') #Read our data dataset
-    buffer = io.StringIO()
-    df.info(buf=buffer)
-    s = buffer.getvalue()
-    st.write("Présentation du jeu de données : ") 
-    st.text(s)
-    
-    st.write("Coordonnées GPS")     
-    image = Image.open('images/GPS.jfif')
-    st.image(image, caption='Coordonnées GPS',width=600)
-    df=pd.read_csv('data/aus_town_gps.csv') #Read our data dataset
-    buffer = io.StringIO()
-    df.info(buf=buffer)
-    s = buffer.getvalue()
-    st.write("Présentation du jeu de données : ") 
-    st.text(s)
-    
-    '''
-    ###Preprocessing
-    '''
+	from PIL import Image
+	st.header("Dataset & PreProcessing")
+	image = Image.open('images/weatherAUS.jpg')
+	st.image(image, caption='Relevé Météo en Australie',width=600)
+	st.subheader("Dataset originel")
+	df=pd.read_csv('data/weatherAUS.csv') #Read our data dataset
+	buffer = io.StringIO()
+	df.info(buf=buffer)
+	s = buffer.getvalue()
+	st.write("Présentation du jeu de données : ")
+	'''
+	Le jeu de données possède 145 460 entrées et 23 colonnes dont :
+	* La date de l'observation (Date).
+	* La ville dans laquelle se situe la station météo (Location). 
+	* La variable cible RainTomorrow dont la valeur (Yes ou No) indique s'il a plu ou non le lendemain de l'observation.
+	* 20 variables décrivant les conditions atmosphériques du jour de l’observation :
+	'''
+	st.text(s)
+	'''
+	Remarques :
+	* Les valeurs de la variable RainToday (Yes, No) sont définies par la variable Rainfall (Yes si précipitations > 1mm).
+	* Plusieurs variables possèdent de nombreuses valeurs manquantes que l'on a géré de la manière suivante:
+	* Soit par exclusion pur et simple des entrées avec valeurs manquantes
+	* Soit par l'utilisation d'un transformeur KNN: https://medium.com/@kyawsawhtoon/a-guide-to-knn-imputation-95e2dc496e
+	'''
+	st.subheader("Ajout de nouvelles données")
+	st.write("Principaux climats australiens",width=600)
+	image = Image.open('images/grd_climats.png')
+	st.image(image, caption='Climats australiens',width=600)
+	st.write("Classification de Köppen")
+	image = Image.open('images/clim_koppen.png')
+	st.image(image, caption='Climats - Classification de Koppen',width=600)
+	df=pd.read_csv('data/climatsAUS_v2.csv') #Read our data dataset
+	buffer = io.StringIO()
+	df.info(buf=buffer)
+	s = buffer.getvalue()
+	st.write("Présentation du jeu de données : ")
+	st.text(s)
+	st.write("Coordonnées GPS")
+	image = Image.open('images/GPS.jfif',width=600)
+	st.image(image, caption='Coordonnées GPS',width=600)
+	df=pd.read_csv('data/aus_town_gps.csv') #Read our data dataset
+	buffer = io.StringIO()
+	df.info(buf=buffer)
+	s = buffer.getvalue()
+	st.write("Présentation du jeu de données : ")
+	st.text(s)
+	'''
+	###Preprocessing
+	Création de nouvelles données:
+	* Numérisation des deux variables booléennes RainToday et RainTomorrow.
+	* Décomposition de la date en trois variables : Année, Mois, Jour.
+	* Climat_Koppen : classe climatique dans la classification de Köppen.
+	* Clim_type : type de climat regroupant plusieurs classes de Köppen, définie à partir de Climat_Koppen
+	* Ajout de 3x3 variables précisant la direction des vents (définies à partir de WindGustDir, WindDir9am et WindDir3pm) :
+		* WindGust_Ang, Wind9am_Ang, Wind3pm_Ang : angle correspondant (en degrés) sur le cercle trigonométrique (ie. E=0° et rotation dans le sens direct).
+		* WindGust_cos, Wind9am_cos, Wind3pm_cos : cosinus de l'angle (abscisse des coordonnées trigo).
+		* WindGust_sin, Wind9am_sin, Wind3pm_sin : sinus de l'angle (ordonnée des coordonnées trigo). 
+	* Pluie à J-1, J-2, J+1, J+2
+	* Circularisation de la variable Mois (https://datascientest.com/numeriser-des-variables). De cette façon, les mois de décembre et janvier ont des valeurs proches.
+	###
+	### Gestion des valeurs manquantes:
+	* DropNa pour Manière brute: 56k entrées
+	* Interpolate et KNN imputer: 145k entrées
+	'''
 	
 
 
