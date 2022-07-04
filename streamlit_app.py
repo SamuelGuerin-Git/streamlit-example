@@ -472,9 +472,7 @@ def simulation():
 ########################################################################################################################################################################
     
 def serie_temp():
-	Menu_mod = st.sidebar.radio(
-		"Séries temporelles",
-		('Introduction','Observations et interprétations','1ère étude','2nde étude'))
+	Menu_mod = st.sidebar.radio("Séries temporelles",('Introduction & méthodologie','1ère étude','2nde étude'))
 	
 	if Menu_mod == 'Introduction & méthodologie':
 		Intro()
@@ -518,8 +516,6 @@ def serie_temp():
 		Remarque : D’autres métriques, telle que la MAE, ont été calculées. Elles présentent toutes des résultats concordants pour l’ensemble des modèles testés et ne seront pas présentées.
 
 		'''
-	
-
 		
 	def Results_1():
 		'''
