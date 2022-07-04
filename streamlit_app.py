@@ -74,12 +74,11 @@ def PreProcessing():
     from PIL import Image
     
     st.header("Dataset & PreProcessing")
-    '''
-    ### Dataset
-    '''
-    st.subheader("Fichier source")
+        
     image = Image.open('images/weatherAUS.jpg')
     st.image(image, caption='Relevé Météo en Australie',width=600)
+    
+    st.subheader("Dataset originel")
     df=pd.read_csv('data/weatherAUS.csv') #Read our data dataset
     buffer = io.StringIO()
     df.info(buf=buffer)
