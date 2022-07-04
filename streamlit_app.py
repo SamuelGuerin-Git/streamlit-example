@@ -535,7 +535,7 @@ def serie_temp():
 			st.image('images/ST_ResultTab_Cairns.jpg',width=600)
 			st.image('images/ST_ResultCurv_Cairns_Rainfall.jpg',width=600)
 			st.image('images/ST_ResultCurv_Cairns_Hum3pm.jpg',width=600)
-			st.image('images/ST_ResultCurv_Cairns_MaxTemp.jpg',width=600)
+			st.image('images/ST_ResultCurv_Cainrs_MaxTemp.jpg',width=600)
 		'''
 		## Conclusion:
 		Comme on pouvait s’y attendre, les variations aléatoires quotidiennes rendent les prédictions plus difficiles sur Rainfall que sur MaxTemp, comme le montre la superposition des courbes des prédictions et de la série originelle. Pour MaxTemp, le coefficient de corrélation dépasse en effet 90 % pour tous les modèles. Humidity3pm présente sur ce point, un profil intermédiaire. Pour les trois indicateurs météorologiques, les performances sont meilleures sur Cairns que sur Canberra. La différence entre les deux villes est particulièrement marquée pour Rainfall, avec un coefficient de corrélation de 61 % pour Cairns (comparable à celui d’Humidity), alors qu’il n’est que de 20 % pour Canberra. Cette différence peut s’expliquer si l’on prend en compte le climat des deux villes. Cairns présente en effet un climat tropical, avec des saisons plus marquées en termes de précipitations que Canberra, dont le climat est océanique.
