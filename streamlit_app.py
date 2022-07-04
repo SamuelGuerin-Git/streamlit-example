@@ -474,12 +474,6 @@ def simulation():
 def serie_temp():
 	Menu_mod = st.sidebar.radio("Séries temporelles",('Introduction & méthodologie','1ère étude','2nde étude'))
 	
-	if Menu_mod == 'Introduction & méthodologie':
-		Intro()
-	if Menu_mod == '1ère étude':
-		Results_1()
-	if Menu_mod == '2nde étude':
-		Results_2()
 		
 	def Intro():
 		'''
@@ -582,8 +576,14 @@ def serie_temp():
 		Les performances sont meilleures sur ces deux climats que sur les villes prises indépendamment, avec des erreurs plus faible et un coefficient de corrélation dépassant les 75 %. 
 		On remarque aussi de performances légèrement meilleures pour le climat méditerranéen que pour le climat tropical, si l’on considère l’erreur WMAPE. Cette différence peut s’interpréter par une meilleure stationnarité de la série méditerranéenne, visible en observant la courbe de la moyenne mobile
 		'''
-
 		
+	if Menu_mod == 'Introduction & méthodologie':
+		Intro()
+	if Menu_mod == '1ère étude':
+		Results_1()
+	if Menu_mod == '2nde étude':
+		Results_2()
+
 	
 
 ########################################################################################################################################################################
