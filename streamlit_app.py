@@ -527,15 +527,15 @@ def serie_temp():
 		## Résultats obtenus pour :
 		'''
 		if st.checkbox('Canberra'):
-			st.image('ST_ResultTab_Camberra.jpg',width=600)
-			st.image('ST_ResultCurv_Camberra_Rainfall.jpg',width=600)
-			st.image('ST_ResultCurv_Camberra_Hum3pm.jpg',width=600)
-			st.image('ST_ResultCurv_Camberra_MaxTemp.jpg',width=600)
+			st.image('images/ST_ResultTab_Camberra.jpg',width=600)
+			st.image('images/ST_ResultCurv_Camberra_Rainfall.jpg',width=600)
+			st.image('images/ST_ResultCurv_Camberra_Hum3pm.jpg',width=600)
+			st.image('images/ST_ResultCurv_Camberra_MaxTemp.jpg',width=600)
 		if st.checkbox('Cairns'):
-			st.image('ST_ResultTab_Cairns.jpg',width=600)
-			st.image('ST_ResultCurv_Cairns_Rainfall.jpg',width=600)
-			st.image('ST_ResultCurv_Cairns_Hum3pm.jpg',width=600)
-			st.image('ST_ResultCurv_Cairns_MaxTemp.jpg',width=600)
+			st.image('images/ST_ResultTab_Cairns.jpg',width=600)
+			st.image('images/ST_ResultCurv_Cairns_Rainfall.jpg',width=600)
+			st.image('images/ST_ResultCurv_Cairns_Hum3pm.jpg',width=600)
+			st.image('images/ST_ResultCurv_Cairns_MaxTemp.jpg',width=600)
 		'''
 		## Conclusion:
 		Comme on pouvait s’y attendre, les variations aléatoires quotidiennes rendent les prédictions plus difficiles sur Rainfall que sur MaxTemp, comme le montre la superposition des courbes des prédictions et de la série originelle. Pour MaxTemp, le coefficient de corrélation dépasse en effet 90 % pour tous les modèles. Humidity3pm présente sur ce point, un profil intermédiaire. Pour les trois indicateurs météorologiques, les performances sont meilleures sur Cairns que sur Canberra. La différence entre les deux villes est particulièrement marquée pour Rainfall, avec un coefficient de corrélation de 61 % pour Cairns (comparable à celui d’Humidity), alors qu’il n’est que de 20 % pour Canberra. Cette différence peut s’expliquer si l’on prend en compte le climat des deux villes. Cairns présente en effet un climat tropical, avec des saisons plus marquées en termes de précipitations que Canberra, dont le climat est océanique.
@@ -554,16 +554,16 @@ def serie_temp():
 		La méthodologie est la même que celle utilisée pour les analyse par ville.
 		## Observations:
 		'''
-		st.image('ST_CourbeIndic_Rainfall_climat.jpg',width=600)
-		st.image('ST_CourbeIndic_Rainfall_climat_saison.jpg',width=600)
+		st.image('images/ST_CourbeIndic_Rainfall_climat.jpg',width=600)
+		st.image('images/ST_CourbeIndic_Rainfall_climat_saison.jpg',width=600)
 		'''
 		Les graphiques confirment notre hypothèse : les deux séries possèdent une forte saisonnalité mais avec un décalage d'une demi-période environ.
 		La moyenne mobile, calculée sur 12 mois, évolue peu, mais les séries ne sont pas complètement stationnaires. 
 		Le climat tropical présente notamment une diminution des pics de précipitations après 2012.
 		'''
-		st.image('ST_ResultTab_RainfallClimat.jpg',width=600)
-		st.image('ST_ResultCurv_Rainfall_med.jpg',width=600)
-		st.image('ST_ResultCurv_Rainfall_trop.jpg',width=600)
+		st.image('images/ST_ResultTab_RainfallClimat.jpg',width=600)
+		st.image('images/ST_ResultCurv_Rainfall_med.jpg',width=600)
+		st.image('images/ST_ResultCurv_Rainfall_trop.jpg',width=600)
 		'''
 		## Conclusion
 		Les performances sont meilleures sur ces deux climats que sur les villes prises indépendamment, avec des erreurs plus faible et un coefficient de corrélation dépassant les 75 %. 
