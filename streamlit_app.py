@@ -472,12 +472,11 @@ def simulation():
 ########################################################################################################################################################################
     
 def serie_temp():
-	Menu_mod = st.sidebar.radio("Séries temporelles",('Introduction & méthodologie','1ère étude','2nde étude'))
-	
+	Menu_mod = st.sidebar.radio("Séries temporelles",('Introduction & méthodologie','1ère étude','2nde étude'))	
 		
 	def Intro():
 		'''
-		### Introduction
+		## Introduction
 		Cette section traite des séries temporelles sur différents indicateurs. Notre choix s’est porté sur les indicateurs suivants :
 		* RainFall, le niveau de précipitation en mm
 		* Humidity3pm, le taux d'humidité à 15h
