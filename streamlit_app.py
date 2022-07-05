@@ -25,7 +25,7 @@ def main():
 	#layout="wide",)
 	Menu = st.sidebar.radio(
 		"Menu",
-		('Le Projet Météo', 'Dataset & PreProcessing','DataViz','Modelisations','Performances','Simulations','Clustering','Séries Temporelles','Conclusion','Rapport'))
+		('Le Projet Météo', 'Dataset & PreProcessing','DataViz','Modelisations','Performances','Simulations','Clustering','Séries Temporelles','Conclusion'))
 	if Menu == 'Le Projet Météo':
 		from PIL import Image
 		image = Image.open('images/RainsBerry_2.jpg')
@@ -612,7 +612,8 @@ def serie_temp():
 ########################################################################################################################################################################
 # Définition de la partie rapport
 ########################################################################################################################################################################
-    
+  
+  
 def rapport():
     st.write("[Lien git_hut :](https://github.com/DataScientest-Studio/RainsBerryPy)")
     def show_pdf(file_path):
@@ -622,6 +623,7 @@ def rapport():
         st.markdown(pdf_display, unsafe_allow_html=True)
 
     show_pdf('https://github.com/SamuelGuerin-Git/RainsBerryPy_save/blob/cac5fac60f5e539aec938a343b8152b3587f9ba4/RainsberryPy%20Meteo%20-%20Rapport%20final.pdf')
+
 
 ########################################################################################################################################################################
 # Définition de la partie conclusion générale
