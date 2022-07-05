@@ -333,7 +333,7 @@ def Performances():
         * Les modèles de Deep Learning développés n’ont pas démontré de meilleurs résultats que les modèles de Machine Learning classique étudiés en début de projet.
         '''
         st.image('images/Perf_conclusion1.jpg')
-        if st.checkbox("Interprétabilité de notre modèle final XGBOOST")
+        if st.checkbox("Interprétabilité de notre modèle final XGBOOST"):
             '''
             * L'interprétabilité est importante dès que les résultats d'un modèle influent grandement sur des décisions importantes. En entreprise par exemple, expliquer à des équipes non-initiées le fonctionnement d'un modèle pose toujours son lot de défis.
             * Ici nous ne présentons que l'interprétabilité  avec Shapash (Shapash est une librairie Python qui vise à rendre le Machine Learning intelligible par le plus grand nombre. Concrètement, il s’agit d’une surcouche à d’autres librairies d’intelligibilité (Shap, Lime))
