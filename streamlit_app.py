@@ -272,18 +272,7 @@ def Performances():
         st.image('images/Perf_ROC.jpg')       
     if st.checkbox("Selon le seuil de détection"):
         st.image('images/Perf_seuils.jpg')
-        st.image('images/Perf_seuils1.jpg')          
-    if st.checkbox("Conclusion"):
-        '''
-        * La comparaison des algorithmes sur la courbe de ROC nous donne une liste de quatre algorithmes sensiblement plus performants que les autres :
-            * la Random Forest
-            * le Bagging
-            * la XGBoost
-            * la Light GBM
-        
-        * Les comparaisons sur le F1_score en choisissant différents seuils de probabilités (0.50, F1_max, recall=precision) vont nous conduite à préférer la XGBOOST qui est légèrement plus performante que la lightGBM sur le seuil "recall=precision".
-        '''
-        st.image('images/Perf_conclusion1.jpg')
+        st.image('images/Perf_seuils1.jpg')
     if st.checkbox("Deep Learning"):
         '''
         L’objectif de cette section est de tester des modèles de Deep Learning pour prédire RainTomorrow et de comparer les performances obtenues aux modèles de Machine Learning classique présentés ci dessus.
@@ -311,7 +300,30 @@ def Performances():
             '''
             * Les modèles de Deep Learning développés n’ont pas démontré de meilleurs résultats que les modèles de Machine Learning classique étudiés en début de projet.
             * Par ailleurs, au-delà des performances peu convaincantes sur notre jeu de données, le manque d’interprétabilité des modèles de Deep Learning par rapport au Machine Learning classique ne pousse pas à les développer davantage lors de ce projet.
+            '''        
+    if st.checkbox("Conclusion"):
+        '''
+        * La comparaison des algorithmes sur la courbe de ROC nous donne une liste de quatre algorithmes sensiblement plus performants que les autres :
+            * la Random Forest
+            * le Bagging
+            * la XGBoost
+            * la Light GBM
+        
+        * Les comparaisons sur le F1_score en choisissant différents seuils de probabilités (0.50, F1_max, recall=precision) vont nous conduite à préférer la XGBOOST qui est légèrement plus performante que la lightGBM sur le seuil "recall=precision".
+        * Les modèles de Deep Learning développés n’ont pas démontré de meilleurs résultats que les modèles de Machine Learning classique étudiés en début de projet.
+        '''
+        st.image('images/Perf_conclusion1.jpg')
+        if st.checkbox("Interprétabilité de notre modèle final XGBOOST")
             '''
+            * L'interprétabilité est importante dès que les résultats d'un modèle influent grandement sur des décisions importantes. En entreprise par exemple, expliquer à des équipes non-initiées le fonctionnement d'un modèle pose toujours son lot de défis.
+            * Ici nous ne présentons que l'interprétabilité  avec Shapash (Shapash est une librairie Python qui vise à rendre le Machine Learning intelligible par le plus grand nombre. Concrètement, il s’agit d’une surcouche à d’autres librairies d’intelligibilité (Shap, Lime))
+            * Interprétabilité globale
+            '''
+            st.image('images/Interpretabilite_globale.jpg')
+            '''
+            * Interprétabilité locale
+            '''            
+            st.image('images/Interpretabilite_locale.jpg')
 
         
 ########################################################################################################################################################################
