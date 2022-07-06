@@ -642,7 +642,9 @@ def conclusion():
     * Nous tenions aussi à remercier notre mentor Laurène qui a su questionner notre travail et en assurer sa cohérence à chaque itération.
 
     ### Prédiction de la pluie le lendemain - meilleurs scores :
-    * XGBoost : accuracy = 90 %   &   score F1 = 67 %
+    * XGBoost : 
+        * accuracy = 90 % 
+        * score F1 = 67 %
 
     ### Pour aller plus loin
     * les possibles évolutions que nous pourrions apporter à notre travail seraient les suivantes :
