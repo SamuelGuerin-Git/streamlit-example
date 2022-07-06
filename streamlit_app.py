@@ -719,9 +719,9 @@ def clustering():
         '''
     def TSClustering2L():
         st.subheader("Clustering: Régime pluviométrique => TimeSeriesKmeans")
-	'''
-	https://towardsdatascience.com/how-to-apply-k-means-clustering-to-time-series-data-28d04a8f7da3
-	###
+        '''
+        https://towardsdatascience.com/how-to-apply-k-means-clustering-to-time-series-data-28d04a8f7da3
+        ###
         ### Preprocessing
         ##### Sélection d'une plage de 3 ans et demi de données à partir de janvier 2014 - Plus grand plages avec des relevés consécutifs (données d'origine avec traitement KNN imputer).
 
