@@ -236,7 +236,7 @@ def Modelisations():
         st.subheader("Conclusion")
         '''
         Les outils pour améliorer les performances :
-        * Contrôler les seuil de probabilité de détection de la classe 1.
+        * Contrôler le seuil de probabilité de détection de la classe 1.
         * Entrainer le modèle sur le jeu de données réduit dans lequel les valeurs manquantes ont simplement été supprimées.
         * Conserver toutes les variables.
         '''
