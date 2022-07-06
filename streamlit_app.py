@@ -79,8 +79,8 @@ def PreProcessing():
 	buffer = io.StringIO()
 	df.info(buf=buffer)
 	s = buffer.getvalue()
-	st.write("Présentation du jeu de données : ")
 	'''
+	## Présentation du jeu de données
 	Le jeu de données possède 145 460 entrées et 23 colonnes dont :
 	* La date de l'observation (Date).
 	* La ville dans laquelle se situe la station météo (Location). 
@@ -89,7 +89,7 @@ def PreProcessing():
 	'''
 	st.text(s)
 	'''
-	Remarques :
+	## Remarques :
 	* Les valeurs de la variable RainToday (Yes, No) sont définies par la variable Rainfall (Yes si précipitations > 1mm).
 	* Plusieurs variables possèdent de nombreuses valeurs manquantes que l'on a géré de la manière suivante:
 	* Soit par exclusion pur et simple des entrées avec valeurs manquantes
@@ -118,7 +118,7 @@ def PreProcessing():
 	st.write("Présentation du jeu de données : ")
 	st.text(s)
 	'''
-	###Preprocessing
+	## Preprocessing
 	Création de nouvelles données:
 	* Numérisation des deux variables booléennes RainToday et RainTomorrow.
 	* Décomposition de la date en trois variables : Année, Mois, Jour.
@@ -131,9 +131,9 @@ def PreProcessing():
 	* Pluie à J-1, J-2, J+1, J+2
 	* Circularisation de la variable Mois (https://datascientest.com/numeriser-des-variables). De cette façon, les mois de décembre et janvier ont des valeurs proches.
 	###
-	### Gestion des valeurs manquantes:
+	## Gestion des valeurs manquantes:
 	* DropNa pour Manière brute: 56k entrées
-	* Interpolate et KNN imputer: 145k entrées
+	* Interpolate et KNN imputer: 145k entrées (https://medium.com/@kyawsawhtoon/a-guide-to-knn-imputation-95e2dc496e)
 	'''
 	
 
@@ -719,6 +719,9 @@ def clustering():
         '''
     def TSClustering2L():
         st.subheader("Clustering: Régime pluviométrique => TimeSeriesKmeans")
+	'''
+	https://towardsdatascience.com/how-to-apply-k-means-clustering-to-time-series-data-28d04a8f7da3
+	'''
         '''
         ### Preprocessing
         ##### Sélection d'une plage de 3 ans et demi de données à partir de janvier 2014 - Plus grand plages avec des relevés consécutifs (données d'origine avec traitement KNN imputer).
