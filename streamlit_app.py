@@ -74,7 +74,7 @@ def PreProcessing():
 	st.header("Dataset & PreProcessing")
 	image = Image.open('images/weatherAUS.jpg')
 	st.image(image, caption='Relevé Météo en Australie',width=600)
-	st.subheader("Dataset originel")
+	# st.subheader("Dataset originel")
 	df=pd.read_csv('data/weatherAUS.csv') #Read our data dataset
 	buffer = io.StringIO()
 	df.info(buf=buffer)
@@ -92,30 +92,40 @@ def PreProcessing():
 	## Remarques :
 	* Les valeurs de la variable RainToday (Yes, No) sont définies par la variable Rainfall (Yes si précipitations > 1mm).
 	* Plusieurs variables possèdent de nombreuses valeurs manquantes que l'on a géré de la manière suivante:
-	* Soit par exclusion pur et simple des entrées avec valeurs manquantes
-	* Soit par l'utilisation d'un transformeur KNN: https://medium.com/@kyawsawhtoon/a-guide-to-knn-imputation-95e2dc496e
+		* Soit par exclusion pur et simple des entrées avec valeurs manquantes
+		* Soit par l'utilisation d'un transformeur KNN: https://medium.com/@kyawsawhtoon/a-guide-to-knn-imputation-95e2dc496e
 	'''
-	st.subheader("Ajout de nouvelles données")
-	st.write("Principaux climats australiens",width=600)
+	'''
+	## Ajout de nouvelles données
+	### Principaux climats australiens",width=600)
+	'''
 	image = Image.open('images/grd_climats.png')
 	st.image(image, caption='Climats australiens',width=600)
-	st.write("Classification de Köppen")
+	'''
+	### Classification de Köppen
+	'''
 	image = Image.open('images/clim_koppen.png')
 	st.image(image, caption='Climats - Classification de Koppen',width=600)
 	df=pd.read_csv('data/climatsAUS_v2.csv') #Read our data dataset
 	buffer = io.StringIO()
 	df.info(buf=buffer)
 	s = buffer.getvalue()
-	st.write("Présentation du jeu de données : ")
+	'''
+	#### Présentation du jeu de données :
+	'''
 	st.text(s)
-	st.write("Coordonnées GPS")
+	'''
+	### Coordonnées GPS
+	'''
 	image = Image.open('images/GPS.jfif')
 	st.image(image, caption='Coordonnées GPS')
 	df=pd.read_csv('data/aus_town_gps.csv') #Read our data dataset
 	buffer = io.StringIO()
 	df.info(buf=buffer)
 	s = buffer.getvalue()
-	st.write("Présentation du jeu de données : ")
+	'''
+	#### Présentation du jeu de données :
+	'''
 	st.text(s)
 	'''
 	## Preprocessing
@@ -130,10 +140,6 @@ def PreProcessing():
 		* WindGust_sin, Wind9am_sin, Wind3pm_sin : sinus de l'angle (ordonnée des coordonnées trigo). 
 	* Pluie à J-1, J-2, J+1, J+2
 	* Circularisation de la variable Mois (https://datascientest.com/numeriser-des-variables). De cette façon, les mois de décembre et janvier ont des valeurs proches.
-	###
-	## Gestion des valeurs manquantes:
-	* DropNa pour Manière brute: 56k entrées
-	* Interpolate et KNN imputer: 145k entrées (https://medium.com/@kyawsawhtoon/a-guide-to-knn-imputation-95e2dc496e)
 	'''
 	
 
