@@ -689,6 +689,7 @@ def clustering():
         * 1ère lettre : type de climat => Algorithme KMeans
         * 2ème lettre : régime pluviométrique => TimeSeriesKmeans Clustering
         * 3ème lettre : variations de températures => TimeSeriesKmeans Clustering
+	https://fr.wikipedia.org/wiki/Classification_de_K%C3%B6ppen
         '''                
         
         
