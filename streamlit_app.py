@@ -96,8 +96,8 @@ def PreProcessing():
 		* Soit par l'utilisation d'un transformeur KNN: https://medium.com/@kyawsawhtoon/a-guide-to-knn-imputation-95e2dc496e
 	'''
 	'''
-	## Ajout de nouvelles données
-	### Principaux climats australiens",width=600)
+	## Ajout de nouvelles données :
+	### Principaux climats australiens
 	'''
 	image = Image.open('images/grd_climats.png')
 	st.image(image, caption='Climats australiens',width=600)
