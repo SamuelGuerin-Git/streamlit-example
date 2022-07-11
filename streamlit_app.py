@@ -32,7 +32,7 @@ def main():
 		st.image(image,width=600,caption="")
 		'''
 		* Le projet présenté dans ce streamlit a été développé dans le cadre de la formation Data Scientist de Datascientest.com - Promotion Octobre 2021.
-		* L'objectif premier de ce projet est de mettre en application les différents acquis de la formation sur la problématique de prévision météo et plus précisément de répondre à une question essentielle: va-t-il pleuvoir demain?
+		* L'objectif premier de ce projet est de mettre en application les différents acquis de la formation sur la problématique de prévision météo en Australie et plus précisément de répondre à une question essentielle: va-t-il pleuvoir demain?
 		'''
 		st.image('images/Intro_météo.jpg',width=650,caption="")
 		'''
@@ -215,9 +215,9 @@ def Modelisations():
         '''
         #### **Hypothèse : Les performances dépendent de la méthode de traitement des valeurs manquantes.**
         ##### Trois techniques ont été utilisées pour traiter les valeurs manquantes et créer trois jeux de données : 
-        * Remplacement des valeurs manquantes par la méthode KNN-Imputer.
-        * Suppression des observations possédant des valeurs manquantes par la méthode dropna.
-        * Suppression des quatre variables possédant le plus de valeurs manquantes, puis suppression des observations restantes possédant des NaN.
+        * imputer : Remplacement des valeurs manquantes par la méthode KNN-Imputer.
+        * dropna : Suppression des observations possédant des valeurs manquantes par la méthode dropna.
+        * dropvar : Suppression des quatre variables possédant le plus de valeurs manquantes, puis suppression des observations restantes possédant des NaN.
         '''       
         st.image('images/model_07_proportionsNA.jpg')
         if st.checkbox("Scores"):
