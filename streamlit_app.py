@@ -89,15 +89,8 @@ def PreProcessing():
 	'''
 	st.text(s)
 	'''
-	## Remarques :
-	* Les valeurs de la variable RainToday (Yes, No) sont définies par la variable Rainfall (Yes si précipitations > 1mm).
-	* Plusieurs variables possèdent de nombreuses valeurs manquantes que l'on a géré de la manière suivante:
-		* Soit par exclusion pur et simple des entrées avec valeurs manquantes
-		* Soit par l'utilisation d'un transformeur KNN: https://medium.com/@kyawsawhtoon/a-guide-to-knn-imputation-95e2dc496e
-	'''
-	'''
-	## Ajout de nouvelles données :
-	### Principaux climats australiens
+        ## Ajout de nouvelles données :
+        ### Principaux climats australiens
 	'''
 	image = Image.open('images/grd_climats.png')
 	st.image(image, caption='Climats australiens',width=600)
