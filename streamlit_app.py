@@ -640,13 +640,7 @@ def conclusion():
     st.header("Conclusion")
     '''
     * Notre projet RainsBerryPy nous a permis de mettre en application les différents apprentissages de la formation de Datascientist commencée en octobre 2021 : preprocessing, manipulation de dataframe, DataViz, Machine Learning, interprétabilité, clustering, séries temporelles et même Deep Learning. 
-    * Un projet complet qui nous a permis de mettre en avant notre esprit d’initiative en recherchant :
-        *   Des éléments nécessaires à notre modélisation : climat de Köppen, circularisation de la variable mois, …
-        *   De nouvelles bibliothèques/algorithmes : KNN imputer, Light gbm, Shapash, tslearn, Prophet, FastAI…
-
-    * Aussi, la collaboration au sein de notre groupe s’est très bien déroulée et a démontré que le travail en distanciel (devenue une norme depuis la crise sanitaire) n’entache en rien sa performance.
-    * Nous tenions aussi à remercier notre mentor Laurène qui a su questionner notre travail et en assurer sa cohérence à chaque itération.
-
+    
     ### Prédiction de la pluie le lendemain - meilleurs scores :
     * XGBoost : 
         * accuracy = 90 % 
